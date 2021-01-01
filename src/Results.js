@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AdminUpcoming from './AdminUpcoming';
+import app from './base';
 import NavigationBar from './NavigationBar'
 import "./Results.css"
 
@@ -6,9 +8,33 @@ const Results = () => {
     let month = new Date().getMonth();
     let date = new Date().getDate();
     let year = new Date().getFullYear();
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let today = new Date().getTime();
+    const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await app.firestore().collection('events').orderBy("date").get();
+                data.docs.forEach((res) => {
+                    if(today.valueOf() < res.data().date.toDate().valueOf()) {
+                        setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
+                    }
+                });
+                // console.log(data.docs[0].data().date.toDate());
+            } catch (error) {
+                alert(error);
+            }
+        }
+        fetchData();
+    }, []);
+
+    
+
     return (
-        <div>
+        <div> 
             <NavigationBar />
             <div className="resultSection">
                 <div className="selectionTabs">
@@ -23,6 +49,11 @@ const Results = () => {
                     {months[month]} {date}, {year} 
                 </div>
             </div>
+            {
+                upcomingEvents.map((res) => {
+                    return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2}/>
+                })
+            }
         </div>
     )
 }

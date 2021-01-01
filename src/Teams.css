@@ -1,0 +1,21 @@
+
+.selectionTeams {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.selectionTeams>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 40px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    border: #7D7D7D solid 1px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}

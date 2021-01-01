@@ -1,0 +1,142 @@
+.upcomingEvents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.upcomingEvents>div {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upcomingEvents>div>div {
+    flex: auto;
+}
+
+.events {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.popUp {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #c4c4c47a;
+    z-index: 3;
+}
+
+.container {
+    width: 480px;
+    height: 360px;
+    padding: 1.5em;
+}
+
+.container>h5 {
+    font-weight: 500;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.pointsDist {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pointsDist>div {
+    width: 150px;
+}
+
+.pointsDist>div>h5 {
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+h6 {
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+}
+
+.points {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.points1,.points2,.points3,.points4 {
+    display: flex;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1em;
+    height: 1.1em;
+    background-color: #c4c4c4;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 1.1em;
+    background-color: #ffffff;
+    border: solid 1px #000000;
+    box-sizing: border-box;
+}
+
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1em;
+    height: 1.1em;
+    background-color: #c4c4c4;
+    box-sizing: border-box;
+}
+
+.popUpButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpButtons>button {
+    background-color: #c4c4c4;
+    border-radius: 5px;
+    border: none;
+    margin-right: 1em;
+    font-size: 16px;
+}
+
+.notes>h5 {
+    margin: 0;
+}
+
+.notes>input {
+    margin: auto;
+    width: 100%;
+    background-color: #c4c4c4;
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-bottom: 1em;
+}

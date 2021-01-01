@@ -3,95 +3,182 @@ import { AuthContext } from './Auth';
 import app from './base'
 import "./Home.css"
 import NavigationBar from './NavigationBar';
+import UpcomingEvents from './UpcomingEvents';
 
 const Home = () => {
-    const { currentUser } = useContext(AuthContext);
-    const [user, setUser] = useState(" ");
-    const [villa, setVilla] = useState(" ");
-    const [team, setTeam] = useState(" ");
+    // const { currentUser } = useContext(AuthContext);
+    const [event, setEvent] = useState(" ");
+    // let today = new Date().toLocaleDateString("en-US");
+    let today = new Date().getTime();
+    const [upcomingEvents, setUpcomingEvents] = useState([]);
 
     React.useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await app.firestore().collection('user').doc(`${currentUser.uid}`).get();
-                setUser(data.data().name);
-                setVilla(data.data().villa);
-                setTeam(data.data().team);
+                const data = await app.firestore().collection('events').orderBy("date").get();
+                data.docs.forEach((res) => {
+                    if(today.valueOf() < res.data().date.toDate().valueOf()) {
+                        setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
+                    }
+                });
+                // console.log(data.docs[0].data().date.toDate());
             } catch (error) {
                 alert(error);
             }
         }
         fetchData();
-    }, [currentUser]);
+    }, []);
 
     return (
         <section>
             <NavigationBar />
             <div className="home"><br/>
-                RV Togetherness Festival.<br/><br/>
-                Jan 1st to Feb 14th.<br/><br/>
-                It's fun to be together.<br/><br/>
-            </div><br/>
+                <h3>RV Togetherness Festival</h3>
+                <br/>
+                <h3>Jan 1st to Feb 14th</h3>
+                <h3>It's fun to be together</h3>
+            </div>
 
-            <table class="calendar">
-                <tr>
-                    <th>Upcoming events</th>
-                    <th>Calendar</th>
-                </tr>
-            </table>
+            <div className="calendar">
+                    <h5>Upcoming events</h5>
+                    <h5>Calendar</h5>
+            </div>
             <hr/>
 
             <div className="white-container">
-                <div>
-                    <h3 className="tt">Table Tennis Junior</h3>
-                    <h4 className="tt">Slot 1: 7am-9pm</h4>
-                    <table className="center">
-                        <tr>
-                            <th className="left"><h3>Red Fire</h3></th>
-                            <th>VS</th>
-                            <th className="left"><h3>White Winds</h3></th>
-                        </tr>
-                    </table>
-                </div>
-                <div>
-                    <h3 className="tt">Table Tennis Junior</h3>
-                    <h4 className="tt">Slot 1: 7am-9pm</h4>
-                    <table className="center">
-                        <tr>
-                            <th className="left"><h3>Red Fire</h3></th>
-                            <th>VS</th>
-                            <th className="left"><h3>White Winds</h3></th>
-                        </tr>
-                    </table>
-                </div>
+                {
+                    upcomingEvents.map((x) =>  {
+                        return (
+                        <UpcomingEvents event={x.eventname} slot={x.Slot} team1={x.Team1} team2={x.Team2}/>
+                        )
+                    })
+                }
             </div>
 
             <br/>
-            <div className="calendar">
-                Teams
+            <div className="calendar2">
+               <h4>Teams</h4>
             </div>
             <hr/>
 
-            <div className="blue-container">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div className="TeamContainer">
+                <div className="red">
+                    <div className="teamHeader">
+                        <div className="block">RF</div>
+                        <div className="teamName">Red Fire</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
+                <div className="white">
+                <div className="teamHeader">
+                        <div className="block">WW</div>
+                        <div className="teamName">White Winds</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
+                <div className="blue">
+                <div className="teamHeader">
+                        <div className="block">BO</div>
+                        <div className="teamName">Blue Ocean</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
+                <div className="green">
+                <div className="teamHeader">
+                        <div className="block">GE</div>
+                        <div className="teamName">Green Earth</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
             </div>
             <br/>
             <br/>
 
             <div className="footer">
-                <table>
-                    <tr>
-                        <th><h3>Coordinators:</h3></th>
-                        <th><h3>Contacts:</h3></th>
-                    </tr>
-                    <tr>
-                        <th><h4>Name 1</h4></th>
-                        <th><h3>403920</h3></th>
-                    </tr>
-                </table>
+                    <div>
+                        <h3>Coordinators:</h3>
+                        <h5>Name 1</h5>
+                    </div>
+                    <div>
+                        <h3>Contacts:</h3>
+                        <h5>403920</h5>
+                    </div>
             </div>
 
     

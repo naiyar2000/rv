@@ -1,0 +1,37 @@
+.container {
+    min-width: 60vh;
+    background-color: #F5F5F5;
+    margin: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 1em;
+}
+
+.container>h3, .container>h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.center>div {
+    padding: 1em;
+}
+
+.versus {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.block1, .block2 {
+    padding: 1em;
+    background-color: #C4C4C4;
+}
+
+.left, .right {
+    font-weight: 400;
+    font-size: 18px;
+}
