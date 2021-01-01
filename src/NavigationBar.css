@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
+
+.NavigationSection {
+    padding: 1em;
+    height: 20vh;
+}
+
+.title {
+    font-family: 'Rochester';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 51px;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    margin-top: 0;
+}
+
+.navOptions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navOptions>div {
+    margin-right: 1em;
+}

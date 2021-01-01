@@ -1,0 +1,48 @@
+.resultSection {
+    padding: 1em;
+}
+
+.selectionTabs {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.selectionTabs>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    border: #00000000 solid 1px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.selectionTabs>button:active{
+    border: #000000 solid 1px;
+}
+
+.searchEventBar {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #ECECEC;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 661px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.eventDate {
+    background-color: #E2E2E2;
+    padding: 0.7em;
+    border-radius: 5px;
+    color: #737373;
+    font-weight: 500;
+    margin-right: 0.2em;
+}

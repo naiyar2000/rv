@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
+.loginSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    font-family: 'Rochester', cursive;
+    font-weight: 400;
+    font-size: 2.5em;
+    line-height: 51.5px;
+}
+
+.spanText {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5em;
+    font-weight: 100;
+}
+
+.formSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.emailInput {
+    width: 320px;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+    margin-bottom: 3em;
+}
+
+.passwordInput {
+    width: 320px;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+}
+
+.loginButton {
+    margin-top: 16em;
+    width: 120px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.199);
+    box-sizing: border-box;
+    
+}
+
+.details {
+    margin-left: 1em;
+    font-size: 12px;
+    font-weight: 400;
+}

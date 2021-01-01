@@ -1,0 +1,101 @@
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+    align-content: space-between;
+  }
+  
+  th.left{
+    text-align: left;
+    align-self: start;
+  }
+  
+  h3.tt{
+    text-align: center;
+  }
+  
+  h4.tt{
+    text-align: center;
+  }
+  
+  div.home {
+    background-color: #25CA46;
+    color: white;
+    text-align: center;
+  }
+  
+  table.calendar{
+    table-layout: fixed;
+    font-size: large;
+    width: 900;
+    align-content:space-between;
+  }
+  
+  div.card{
+    background-color: white;
+    color: black;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .red-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .red-container div {
+    width: 250px;
+    height: 200px;
+    background: red;
+  }
+  
+  .white-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .white-container div {
+    width: 720px;
+    height: 200px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .blue-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .blue-container div {
+    width: 250px;
+    height: 200px;
+    background: blue;
+  }
+  
+  .green-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .green-container div {
+    width: 250px;
+    height: 200px;
+    background: green;
+  }
+  
+  .square div {
+    width: 3;
+    height: 3;
+    background-color: black;
+  }
+  
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15.6%;
+    background-color: #404040;
+    color: white;
+    text-align: right;
+    
+  }
+  
