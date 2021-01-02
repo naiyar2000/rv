@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './Auth';
 import app from './base'
-import "./Home.css"
 import NavigationBar from './NavigationBar';
-import "./Schedule.css"
+// import "./Schedule.css"
 
 const Schedule = () => {
     let month = new Date().getMonth();

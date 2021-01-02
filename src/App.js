@@ -20,12 +20,12 @@ const App = () => {
           <PrivateRoute exact path="/" component={Home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signUp" component={SignUp}/>
-          <Route path="/results" component={Results}/>
-          <Route path="/schedule" component={Schedule}/>
-          <Route path="/scores" component={Scores}/>
-          <Route path="/teams" component={Teams}/>
-          <Route path="/news" component={News}/>
-          <Route path="/rules" component={Rules}/>
+          <Route exact path="/results" component={Results}/>
+          {/* <Route exact path="/schedule" component={Schedule}/> */}
+          <Route exact path="/scores" component={Scores}/>
+          <Route exact path="/teams" component={Teams}/>
+          <Route exact path="/news" component={News}/>
+          <Route exact path="/rules" component={Rules}/>
       </Router>
     </AuthProvider>
   );

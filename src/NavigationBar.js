@@ -29,11 +29,11 @@ const NavigationBar = () => {
                 <div className="navOptions">
                 <div className="homeOption"><Link to="/">HOME</Link></div>
                 <div className="resultsOption"><Link to="/results">RESULTS</Link></div>
-                    <div className="scheduleOption"><Link to="/">SCHEDULE</Link></div>
-                    <div className="scoresOption"><Link to="/">SCORES</Link></div>
-                    <div className="teamsOption"><Link to="/">TEAMS</Link></div>
-                    <div className="rulesOption"><Link to="/">RULES</Link></div>
-                    <div className="newsOption"><Link to="/">NEWS</Link></div>
+                    <div className="scheduleOption"><Link to="/schedule">SCHEDULE</Link></div>
+                    <div className="scoresOption"><Link to="/scores">SCORES</Link></div>
+                    <div className="teamsOption"><Link to="/teams">TEAMS</Link></div>
+                    <div className="rulesOption"><Link to="/rules">RULES</Link></div>
+                    <div className="newsOption"><Link to="/news">NEWS</Link></div>
                     <div className="votingOption"><Link to="/">VOTING</Link></div>
                     <div className="photosOption"><Link to="/">PHOTOS</Link></div>
                     <div className="discussionOption"><Link to="/">DISCUSSION FORUM</Link></div>

@@ -35,13 +35,13 @@
     z-index: 3;
 }
 
-.container {
+.pcontainer {
     width: 480px;
     height: 360px;
     padding: 1.5em;
 }
 
-.container>h5 {
+.pcontainer>h5 {
     font-weight: 500;
 }
 
@@ -81,7 +81,7 @@ h6 {
     display: flex;
 }
 
-.left{
+.pleft{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,7 @@ h6 {
     box-sizing: border-box;
 }
 
-.right{
+.pright{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,6 +125,7 @@ h6 {
     border: none;
     margin-right: 1em;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .notes>h5 {

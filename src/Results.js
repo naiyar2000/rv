@@ -23,7 +23,6 @@ const Results = () => {
                         setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
                     }
                 });
-                // console.log(data.docs[0].data().date.toDate());
             } catch (error) {
                 alert(error);
             }

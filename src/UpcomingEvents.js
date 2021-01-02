@@ -6,7 +6,7 @@ const UpcomingEvents = ({event, slot, team1, team2}) => {
         <div className="container">
             <h3>{event}</h3>
             <h4>{slot}</h4>
-            <div className="center">
+            <div className="ucenter">
                     <div className="block1">{team1[0]}</div>
                     <div className="left">{team1}</div>
                     <div className="versus">VS</div>

@@ -1,36 +1,36 @@
-table.center {
+.center {
   margin-left:auto; 
   margin-right:auto;
   align-content: space-between;
 }
 
-th.left{
+.left{
   text-align: left;
   align-self: start;
 }
 
-h3.tt{
+.tt{
   text-align: center;
 }
 
-h4.tt{
+.tt{
   text-align: center;
 }
 
-div.home {
+.home {
   background-color: #25CA46;
   color: white;
   text-align: center;
 }
 
-table.calendar{
+.calendar{
   table-layout: fixed;
   font-size: large;
   width: 900;
   align-content:space-between;
 }
 
-div.card{
+.card{
   background-color: white;
   color: black;
   text-align: center;

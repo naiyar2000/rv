@@ -17,7 +17,7 @@ const AdminUpcoming = ({event, slot, team1, team2, visible, toggle}) => {
             popVisible?
                 (
                 <div className="popUp">
-                    <div className="container">
+                    <div className="pcontainer">
                         <h2>{event}</h2>
                         <h5 style={{marginBottom: 10, marginTop: 0}}>WON</h5>
                         <div className="selector">
@@ -48,17 +48,17 @@ const AdminUpcoming = ({event, slot, team1, team2, visible, toggle}) => {
                                 <div className="points">
                                     <h6>{team1}</h6>
                                     <div className="points1">
-                                        <button className="left">&#60;</button>
+                                        <button className="pleft">&#60;</button>
                                         <div className="center">10</div>
-                                        <button className="right">&#62;</button>
+                                        <button className="pright">&#62;</button>
                                     </div>
                                 </div>
                                 <div className="points">
                                     <h6>{team2}</h6>
                                     <div className="points2">
-                                        <button className="left">&#60;</button>
+                                        <button className="pleft">&#60;</button>
                                         <div className="center">10</div>
-                                        <button className="right">&#62;</button>
+                                        <button className="pright">&#62;</button>
                                     </div>
                                 </div>
                             </div>
@@ -67,17 +67,17 @@ const AdminUpcoming = ({event, slot, team1, team2, visible, toggle}) => {
                                 <div className="points">
                                     <h6>{team1}</h6>
                                     <div className="points3">
-                                    <button className="left">&#60;</button>
+                                    <button className="pleft">&#60;</button>
                                         <div className="center">15</div>
-                                        <button className="right">&#62;</button>
+                                        <button className="pright">&#62;</button>
                                     </div>
                                 </div>
                                 <div className="points">
                                     <h6>{team2}</h6>
                                     <div className="points4">
-                                    <button className="left">&#60;</button>
+                                    <button className="pleft">&#60;</button>
                                         <div className="center">15</div>
-                                        <button className="right">&#62;</button>
+                                        <button className="pright">&#62;</button>
                                     </div>
                                 </div>
                             </div>
