@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './Auth';
 import app from './base'
+import Hamburger from './Hamburger';
 import "./Home.css"
 import NavigationBar from './NavigationBar';
 import UpcomingEvents from './UpcomingEvents';
@@ -32,6 +33,8 @@ const Home = () => {
     return (
         <section>
             <NavigationBar />
+            <Hamburger />
+
             <div className="home"><br/>
                 <h3>RV Togetherness Festival</h3>
                 <br/>

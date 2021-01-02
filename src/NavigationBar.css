@@ -1,31 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
 
-
-.NavigationSection {
-    padding: 1em;
-    height: 20vh;
+@media screen and (max-width: 600px) {
+    .NavigationSection{
+        display: none;
+    }
+    .NavigationSection>h1, .NavigationSection>h4 {
+        display: none;
+    }
 }
 
-.title {
-    font-family: 'Rochester';
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 51px;
-    margin-bottom: 0;
+
+@media screen and (min-width: 900px){
+    .NavigationSection {
+        padding: 1em;
+        height: 20vh;
+    }
+    
+    .title {
+        font-family: 'Rochester';
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 51px;
+        margin-bottom: 0;
+    }
+    
+    .subtitle {
+        margin-top: 0;
+    }
+    
+    .navOptions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .navOptions>div {
+        margin-right: 1em;
+    }
 }
 
-.subtitle {
-    margin-top: 0;
-}
 
-.navOptions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.navOptions>div {
-    margin-right: 1em;
-}

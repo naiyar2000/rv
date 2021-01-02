@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AdminUpcoming from './AdminUpcoming';
 import app from './base';
+import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar'
 import "./Results.css"
 
@@ -35,6 +36,7 @@ const Results = () => {
     return (
         <div> 
             <NavigationBar />
+            <Hamburger />
             <div className="resultSection">
                 <div className="selectionTabs">
                     <button>Sports</button>
