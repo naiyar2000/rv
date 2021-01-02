@@ -65,6 +65,58 @@ const Home = () => {
             <hr/>
 
             <div className="TeamContainer">
+                <div className="red extra">
+                    <div className="teamHeader">
+                        <div className="block">RF</div>
+                        <div className="teamName">Red Fire</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
+                <div className="red extra">
+                    <div className="teamHeader">
+                        <div className="block">RF</div>
+                        <div className="teamName">Red Fire</div>
+                    </div>
+                    <div className="eventWon">
+                        <div>Event Won</div>
+                        <div>12</div>
+                    </div>
+                    <div className="eventLost">
+                        <div>Event Lost</div>
+                        <div>5</div>
+                    </div>
+                    <div className="numberOfEvents">
+                        <div>No of Events</div>
+                        <div>17</div>
+                    </div>
+                    <div className="pointsEarnedEvent">
+                        <div>Points Earned(Event)</div>
+                        <div>1200</div>
+                    </div>
+                    <div className="pointsEarnedOrganised">
+                        <div>Points Earned(Organised)</div>
+                        <div>35</div>
+                    </div>
+                </div>
                 <div className="red">
                     <div className="teamHeader">
                         <div className="block">RF</div>

@@ -107,6 +107,11 @@
 }
 
 @media screen and (min-width: 900px) {
+
+    .extra {
+        display: none;
+    }
+
     .home {
         width: 100%;
         height: 30vh;
