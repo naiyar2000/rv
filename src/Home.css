@@ -135,14 +135,13 @@
      
     .white-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
-        margin: auto;
+        /* margin: auto; */
         overflow-x: auto;
     }
     
     .white-container>div {
-        flex: auto;
     }
     
     .TeamContainer {

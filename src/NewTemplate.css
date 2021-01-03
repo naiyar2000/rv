@@ -1,0 +1,10 @@
+.NewsSection {
+    padding: 1em;
+}
+
+.NewsSection>h2>span {
+    color: #00000086;
+    font-size: 16px;
+    margin-left: 1em;
+}
+

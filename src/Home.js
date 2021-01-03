@@ -60,6 +60,7 @@ const Home = () => {
             <hr/>
 
             <div className="white-container">
+                <div style={{width: 300}}></div>
                 {
                     upcomingEvents.map((x) =>  {
                         return (

@@ -43,6 +43,7 @@ const Results = () => {
                 personname1: _name1,
                 personname2: _name2,
                 Code: _code,
+                index: ++upcomingEvents.length,
                 date: firebase.firestore.Timestamp.fromDate(new Date())
             });            
         } catch (error) {
