@@ -34,9 +34,10 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        width:400px !important;
+        width:370px !important;
         height: 40px;
         border-radius: 5px;
+        font-size: 17px;
     }
     
     .eventDate {

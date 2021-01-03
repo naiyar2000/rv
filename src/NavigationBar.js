@@ -47,7 +47,6 @@ const NavigationBar = () => {
                 <h4 className="subtitle">Jan 1st to Feb 14th</h4>
                 <div className="navOptions">
                 <div className="homeOption"><Link to="/">HOME</Link></div>
-                <div className="resultsOption"><Link to="/results">RESULTS</Link></div>
                     <div className="scheduleOption"><Link to="/">SCHEDULE</Link></div>
                     <div className="scoresOption"><Link to="/">SCORES</Link></div>
                     <div className="teamsOption"><Link to="/">TEAMS</Link></div>

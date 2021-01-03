@@ -18,7 +18,8 @@ const SignUp = ({history}) => {
             await app.firestore().collection('user').doc(res.user.uid).set({
                 name: email.value,
                 villa: villa.value,
-                team: team.value
+                team: team.value,
+                isAdmin: false
             });
             history.push("/");
         } catch (error) {

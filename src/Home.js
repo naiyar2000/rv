@@ -12,11 +12,23 @@ const Home = () => {
     // let today = new Date().toLocaleDateString("en-US");
     let today = new Date().getTime();
     const [upcomingEvents, setUpcomingEvents] = useState([]);
+    let [red, setRed] = useState({});
+    let [blue, setBlue] = useState({});
+    let [green, setGreen] = useState({});
+    let [white, setWhite] = useState({});
 
     React.useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await app.firestore().collection('events').orderBy("date").get();
+                const rdata = await app.firestore().collection('teams').doc('red').get();
+                const bdata = await app.firestore().collection('teams').doc('blue').get();
+                const wdata = await app.firestore().collection('teams').doc('white').get();
+                const gdata = await app.firestore().collection('teams').doc('green').get();
+                setRed(rdata.data());
+                setBlue(bdata.data());
+                setGreen(gdata.data());
+                setWhite(wdata.data());
                 data.docs.forEach((res) => {
                     if(today.valueOf() < res.data().date.toDate().valueOf()) {
                         setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
@@ -124,23 +136,23 @@ const Home = () => {
                     </div>
                     <div className="eventWon">
                         <div>Event Won</div>
-                        <div>12</div>
+                        <div>{red.won}</div>
                     </div>
                     <div className="eventLost">
                         <div>Event Lost</div>
-                        <div>5</div>
+                        <div>{red.lost}</div>
                     </div>
                     <div className="numberOfEvents">
                         <div>No of Events</div>
-                        <div>17</div>
+                        <div>{red.total}</div>
                     </div>
                     <div className="pointsEarnedEvent">
                         <div>Points Earned(Event)</div>
-                        <div>1200</div>
+                        <div>{red.Epoints}</div>
                     </div>
                     <div className="pointsEarnedOrganised">
                         <div>Points Earned(Organised)</div>
-                        <div>35</div>
+                        <div>{red.Opoints}</div>
                     </div>
                 </div>
                 <div className="white">
@@ -150,23 +162,23 @@ const Home = () => {
                     </div>
                     <div className="eventWon">
                         <div>Event Won</div>
-                        <div>12</div>
+                        <div>{white.won}</div>
                     </div>
                     <div className="eventLost">
                         <div>Event Lost</div>
-                        <div>5</div>
+                        <div>{white.lost}</div>
                     </div>
                     <div className="numberOfEvents">
                         <div>No of Events</div>
-                        <div>17</div>
+                        <div>{white.total}</div>
                     </div>
                     <div className="pointsEarnedEvent">
                         <div>Points Earned(Event)</div>
-                        <div>1200</div>
+                        <div>{white.Epoints}</div>
                     </div>
                     <div className="pointsEarnedOrganised">
                         <div>Points Earned(Organised)</div>
-                        <div>35</div>
+                        <div>{white.Opoints}</div>
                     </div>
                 </div>
                 <div className="blue">
@@ -176,23 +188,23 @@ const Home = () => {
                     </div>
                     <div className="eventWon">
                         <div>Event Won</div>
-                        <div>12</div>
+                        <div>{blue.won}</div>
                     </div>
                     <div className="eventLost">
                         <div>Event Lost</div>
-                        <div>5</div>
+                        <div>{blue.lost}</div>
                     </div>
                     <div className="numberOfEvents">
                         <div>No of Events</div>
-                        <div>17</div>
+                        <div>{blue.total}</div>
                     </div>
                     <div className="pointsEarnedEvent">
                         <div>Points Earned(Event)</div>
-                        <div>1200</div>
+                        <div>{blue.Epoints}</div>
                     </div>
                     <div className="pointsEarnedOrganised">
                         <div>Points Earned(Organised)</div>
-                        <div>35</div>
+                        <div>{blue.Opoints}</div>
                     </div>
                 </div>
                 <div className="green">
@@ -202,23 +214,23 @@ const Home = () => {
                     </div>
                     <div className="eventWon">
                         <div>Event Won</div>
-                        <div>12</div>
+                        <div>{green.won}</div>
                     </div>
                     <div className="eventLost">
                         <div>Event Lost</div>
-                        <div>5</div>
+                        <div>{green.lost}</div>
                     </div>
                     <div className="numberOfEvents">
                         <div>No of Events</div>
-                        <div>17</div>
+                        <div>{green.total}</div>
                     </div>
                     <div className="pointsEarnedEvent">
                         <div>Points Earned(Event)</div>
-                        <div>1200</div>
+                        <div>{green.Epoints}</div>
                     </div>
                     <div className="pointsEarnedOrganised">
                         <div>Points Earned(Organised)</div>
-                        <div>35</div>
+                        <div>{green.Opoints}</div>
                     </div>
                 </div>
             </div>

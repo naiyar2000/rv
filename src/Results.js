@@ -13,6 +13,9 @@ const Results = () => {
 
     let today = new Date().getTime();
     const [upcomingEvents, setUpcomingEvents] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState([]);
+
+    const [text, setText] = useState(" ");
 
 
     React.useEffect(() => {
@@ -31,7 +34,20 @@ const Results = () => {
         fetchData();
     }, []);
 
-    
+    const onChangeText = (e) => {
+        const temp = e.target.value.toLowerCase();
+        setText(temp);
+        filterFunction();
+    }
+
+    const filterFunction = () => {
+        setFilteredEvents(upcomingEvents.filter((data) => {
+            const temp1 = text.split(" ").join("");
+            const temp2 = data.eventname.toLowerCase().split(" ").join("");
+            return temp2.indexOf(temp1) !== -1 
+        }));
+        console.log(filteredEvents);
+    }
 
     return (
         <div> 
@@ -40,20 +56,27 @@ const Results = () => {
             <div className="resultSection">
                 <div className="selectionTabs">
                     <button>Sports</button>
-                    <button>Cultural</button>
+                    <button onClick={() => console.log(text)}>Cultural</button>
                 </div>
-                <div className="searchEventBar">
-                    <i className="fas fa-search" style={{marginRight: 10, marginLeft: 10}}/>
-                    <span>Search and Select the Event</span>
-                </div>
+                <input
+                    type="text"
+                    className="searchEventBar"
+                    onChangeCapture={e => onChangeText(e)}
+                    placeholder="&#xF042;SELECT AND SEARCH THE EVENT"
+                />
                 <div className="eventDate">
                     {months[month]} {date}, {year} 
                 </div>
             </div>
             {
+                filteredEvents.length===0 ? (
                 upcomingEvents.map((res) => {
-                    return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2}/>
-                })
+                    return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true}/>
+                })) : (
+                    filteredEvents.map((res) => {
+                        return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true}/>
+                    })
+                )
             }
         </div>
     )
