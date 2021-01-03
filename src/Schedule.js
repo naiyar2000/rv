@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import AdminUpcoming from './AdminUpcoming';
-import { AuthContext } from './Auth';
 import app from './base'
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
@@ -12,7 +11,7 @@ const Schedule = () => {
     let year = new Date().getFullYear();
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    let today = new Date().getTime();
+    // let today = new Date().getTime();
     const [upcomingEvents, setUpcomingEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 

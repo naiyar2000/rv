@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import { AuthContext } from './Auth';
+import React, { useState } from 'react'
 import app from './base'
 import Hamburger from './Hamburger';
 import "./Home.css"
@@ -8,7 +7,7 @@ import UpcomingEvents from './UpcomingEvents';
 
 const Home = () => {
     // const { currentUser } = useContext(AuthContext);
-    const [event, setEvent] = useState(" ");
+    // const [event, setEvent] = useState(" ");
     // let today = new Date().toLocaleDateString("en-US");
     let today = new Date().getTime();
     const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -30,9 +29,9 @@ const Home = () => {
                 setGreen(gdata.data());
                 setWhite(wdata.data());
                 data.docs.forEach((res) => {
-                    if(today.valueOf() < res.data().date.toDate().valueOf()) {
+                    // if(today.valueOf() < res.data().date.toDate().valueOf()) {
                         setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
-                    }
+                    // }
                 });
                 // console.log(data.docs[0].data().date.toDate());
             } catch (error) {

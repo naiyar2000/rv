@@ -8,6 +8,18 @@
         justify-content: space-between;
         width: 250px;
     }
+
+    .pcontainer {
+        width: 40vh;
+        height: 50vh;
+        padding: 1.5em;
+        background-color: #ffffff;
+        overflow-y: auto;
+    }
+    
+    .pcontainer>h5 {
+        font-weight: 500;
+    }
     
     .selectionTabs>button {
         display: flex;
