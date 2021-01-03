@@ -24,9 +24,9 @@ const Schedule = () => {
             try {
                 const data = await app.firestore().collection('events').orderBy("date").get();
                 data.docs.forEach((res) => {
-                    if(today.valueOf() < res.data().date.toDate().valueOf()) {
+                    // if(today.valueOf() < res.data().date.toDate().valueOf()) {
                         setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
-                    }
+                    // }
                 });
             } catch (error) {
                 alert(error);
@@ -80,10 +80,10 @@ const Schedule = () => {
             {
                 filteredEvents.length===0 ? (
                 upcomingEvents.map((res) => {
-                    return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false}/>
+                    return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code}/>
                 })) : (
                     filteredEvents.map((res) => {
-                        return <AdminUpcoming slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false}/>
+                        return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code}/>
                     })
                 )
             }
