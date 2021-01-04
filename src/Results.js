@@ -53,6 +53,7 @@ const Results = () => {
 
 
     React.useEffect(() => {
+
         const fetchData = async () => {
             try {
                 const data = await app.firestore().collection('events').orderBy("date").get();
@@ -65,13 +66,25 @@ const Results = () => {
                 alert(error);
             }
         }
-        fetchData();
-    }, []);
+
+        if(upcomingEvents.length===0) {
+            fetchData();
+        }
+
+        const temporary = upcomingEvents.filter((data) => {
+            const temp1 = text.split(" ").join("");
+            const temp2 = data.eventname.toLowerCase().split(" ").join("");
+            return temp2.indexOf(temp1) !== -1 
+        })
+
+        setFilteredEvents(temporary)
+        
+    }, [text, upcomingEvents]);
 
     const onChangeText = (e) => {
         const temp = e.target.value.toLowerCase();
         setText(temp);
-        filterFunction();
+        // filterFunction();
     }
 
     const filterFunction = () => {
@@ -157,7 +170,7 @@ const Results = () => {
                 </div>
                 <button className="addEvent" onClick={() => {
                         setAddEventVisible(!AddEventpopVisible);
-                        console.log(new Date().toLocaleDateString("en-US"));
+                        // console.log(new Date().toLocaleDateString("en-US"));
                     }
                 }>ADD EVENT</button>
             </div>
