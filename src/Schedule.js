@@ -88,18 +88,18 @@ const Schedule = () => {
             }
 
             
-            <div class="footer">
-                <table>
-                    <tr>
-                        <th><h3>Coordinators:</h3></th>
-                        <th><h3>Contacts:</h3></th>
-                    </tr>
-                    <tr>
-                        <th><h4>Name 1</h4></th>
-                        <th><h3>403920</h3></th>
-                    </tr>
-                </table>
+            <div className="footer">
+                    <div>
+                        <h3>Coordinators:</h3>
+                        <h5>Name 1</h5>
+                        <h5>Name 2</h5>
+                    </div>
+                    <div>
+                        <h3>Contacts:</h3>
+                        <h5>8249275008</h5>
+                    </div>
             </div>
+
         </div>
     )
 }
