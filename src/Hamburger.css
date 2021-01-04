@@ -12,6 +12,10 @@
         display: block !important;
         height: 7vh;
         background-color: #25CA46;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        width: 100%;
     }
     
 .fa-bars {

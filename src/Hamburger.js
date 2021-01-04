@@ -30,6 +30,8 @@ const Hamburger = ({title}) => {
     }, [currentUser]);
 
     return (
+        <>
+        <div style={{height: 50}}></div>
         <div className="HamburgerMenu">
             <h4 style={{margin: 0, paddingLeft: 50, paddingTop: 15, color: "#ffffff"}}>{title}</h4>
             <i onClick={()=>toggle()} style={{visibility: show ? "hidden": "visible"}} className="fa fa-bars fa-2x"/>
@@ -62,6 +64,7 @@ const Hamburger = ({title}) => {
             </nav>
             </CSSTransition>
         </div>
+        </>
     )
 }
 
