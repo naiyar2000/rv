@@ -44,25 +44,39 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
             try {
                 const Tdata = await app.firestore().collection('teams').doc(`${selectedTeam}`).get();
                 const LTdata = await app.firestore().collection('teams').doc(`${_team2}`).get();
+                const OTdata1 = await app.firestore().collection('teams').doc(`${_team3}`).get();
+                const OTdata2 = await app.firestore().collection('teams').doc(`${_team4}`).get();
                 let _Llost = LTdata.data().lost;
                 let _Ltotal = LTdata.data().total;
+                let _LOpoints = LTdata.data().Opoints;
                 _Ltotal++;
                 _Llost++;
+                _LOpoints += _team2P;
                 let _won = Tdata.data().won;
-                let _lost = Tdata.data().lost;
                 let _total = Tdata.data().total;
-                let _Epoints = Tdata.data()._Epoints;
+                let _Opoints = Tdata.data().Opoints;
                 _won++;
                 _total++;
-                _Epoints += _team1P;
+                _Opoints += _team1P;
+                let _OTOpoints1 = OTdata1.data().Opoints;
+                _OTOpoints1 += _team3P;
+                let _OTOpoints2 = OTdata2.data().Opoints;
+                _OTOpoints2 += _team4P;
                 await app.firestore().collection('teams').doc(`${selectedTeam}`).update({
                     won: _won,
                     total: _total,
-                    Epoints: _Epoints
+                    Opoints: _Opoints
                 })
                 await app.firestore().collection('teams').doc(`${_team2}`).update({
                     lost: _Llost,
-                    total: _Ltotal
+                    total: _Ltotal,
+                    Opoints: _LOpoints
+                })
+                await app.firestore().collection('teams').doc(`${_team3}`).update({
+                    Opoints: _OTOpoints1
+                })
+                await app.firestore().collection('teams').doc(`${_team4}`).update({
+                    Opoints: _OTOpoints2
                 })
             } catch (error) {
                 console.error(error);
@@ -76,27 +90,29 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                 const OTdata2 = await app.firestore().collection('teams').doc(`${_team4}`).get();
                 let _Llost = LTdata.data().lost;
                 let _Ltotal = LTdata.data().total;
+                let _LOpoints = LTdata.data().Opoints;
                 _Llost++;
                 _Ltotal++;
+                _LOpoints += _team1P;
                 let _won = Tdata.data().won;
-                let _lost = Tdata.data().lost;
                 let _total = Tdata.data().total;
-                let _Epoints = Tdata.data().Epoints;
+                let _Opoints = Tdata.data().Opoints;
                 let _OTpoint1 = OTdata1.data().Opoints;
                 let _OTpoint2 = OTdata2.data().Opoints;
                 _OTpoint1 += _team3P;
                 _OTpoint2 += _team4P;
                 _won++;
                 _total++;
-                _Epoints += _team2P;
+                _Opoints += _team2P;
                 await app.firestore().collection('teams').doc(`${selectedTeam}`).update({
                     won: _won,
                     total: _total,
-                    Epoints: _Epoints
+                    Opoints: _Opoints
                 });
                 await app.firestore().collection('teams').doc(`${_team1}`).update({
                     lost: _Llost,
-                    total: _Ltotal
+                    total: _Ltotal,
+                    Opoints: _LOpoints
                 })
                 //
                 await app.firestore().collection('teams').doc(`${_team3}`).update({
@@ -191,7 +207,7 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                                     <button className="pleft" onClick={() => set2P(old => old-1)}>&#60;</button>
                                     <div className="center">{_team2P}</div>
                                     <button className="pright" onClick={() => {
-                                            if(_team2P) {
+                                            if(_team2P<10) {
                                                 set2P(old => old+1);
                                             }
                                     }}>&#62;</button>
@@ -203,17 +219,27 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                             <div className="points">
                                 <h6>{Oteam1}</h6>
                                 <div className="points3">
-                                <button className="pleft">&#60;</button>
+                                <button className="pleft" onClick={() => {
+                                    set3P(old => old-1);
+                                }}>&#60;</button>
                                     <div className="center">{_team3P}</div>
-                                    <button className="pright">&#62;</button>
+                                    <button className="pright" onClick={() => {
+                                        if(_team3P<15) {
+                                            set3P(old => old+1)
+                                        }
+                                    }}>&#62;</button>
                                 </div>
                             </div>
                             <div className="points">
                                 <h6>{Oteam2}</h6>
                                 <div className="points4">
-                                <button className="pleft">&#60;</button>
+                                <button className="pleft" onClick={() => set4P(old => old-1)}>&#60;</button>
                                     <div className="center">{_team4P}</div>
-                                    <button className="pright">&#62;</button>
+                                    <button className="pright" onClick={() => {
+                                        if(_team4P<15) {
+                                            set4P(old => old+1);
+                                        }
+                                    }}>&#62;</button>
                                 </div>
                             </div>
                         </div>
