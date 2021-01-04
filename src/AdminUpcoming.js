@@ -176,17 +176,25 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                             <div className="points">
                                 <h6>{team1}</h6>
                                 <div className="points1">
-                                    <button className="pleft" onClick={() => set1P(old => old-10)}>&#60;</button>
+                                    <button className="pleft" onClick={() => set1P(old => old-1)}>&#60;</button>
                                     <div className="center">{_team1P}</div>
-                                    <button className="pright" onClick={() => set1P(old => old+10)}>&#62;</button>
+                                    <button className="pright" onClick={() => {
+                                            if(_team1P<10){
+                                                set1P(old => old+1);
+                                            }
+                                        }}>&#62;</button>
                                 </div>
                             </div>
                             <div className="points">
                                 <h6>{team2}</h6>
                                 <div className="points2">
-                                    <button className="pleft" onClick={() => set2P(old => old-10)}>&#60;</button>
+                                    <button className="pleft" onClick={() => set2P(old => old-1)}>&#60;</button>
                                     <div className="center">{_team2P}</div>
-                                    <button className="pright" onClick={() => set2P(old => old+10)}>&#62;</button>
+                                    <button className="pright" onClick={() => {
+                                            if(_team2P) {
+                                                set2P(old => old+1);
+                                            }
+                                    }}>&#62;</button>
                                 </div>
                             </div>
                         </div>
