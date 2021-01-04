@@ -62,11 +62,18 @@ const Home = () => {
             <div className="white-container">
                 <div style={{width: 300}}></div>
                 {
+                    upcomingEvents.length !==0 ? (
                     upcomingEvents.map((x) =>  {
                         return (
                         <UpcomingEvents event={x.eventname} slot={x.Slot} team1={x.Team1} team2={x.Team2}/>
                         )
-                    })
+                    })) : (
+                    <div className="spinnerAreaHome">
+                        <div className="spinner">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>)
                 }
             </div>
 

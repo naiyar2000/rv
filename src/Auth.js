@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import app from './base';
+import "./Auth.css"
 
 
 export const AuthContext = React.createContext();
@@ -17,7 +18,14 @@ export const AuthProvider = ({children}) => {
     }, []);
 
     if(pending) {
-        return <div>Loading</div>
+        return (
+            <div className="spinnerAreaAuth">
+                <div className="spinner">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        )
     }
 
     return (

@@ -162,10 +162,10 @@ const Results = () => {
                 }>ADD EVENT</button>
             </div>
             {
-                filteredEvents.length===0 ? (
-                upcomingEvents.map((res) => {
+                filteredEvents.length===0? (
+                    upcomingEvents.length !==0?(upcomingEvents.map((res) => {
                     return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code}/>
-                })) : (
+                })):(<div className="spinnerArea"><div className="spinner"><div></div><div></div></div></div>)) : (
                     filteredEvents.map((res) => {
                         return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code}/>
                     })

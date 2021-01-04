@@ -50,8 +50,8 @@
     transition: 2s ease;
     top: 0;
     left: 0;
-    -webkit-box-shadow: 14px 0px 40px -2px #ffffff;
-            box-shadow: 14px 0px 40px -2px #ffffff;
+    -webkit-box-shadow: 10px 0px 10px -2px #ffffff;
+            box-shadow: 10px 0px 10px -2px #ffffff;
   }
   
   .navbar .close {
