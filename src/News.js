@@ -52,7 +52,7 @@ const News = () => {
     return (
         <div>
             <NavigationBar />
-            <Hamburger />
+            <Hamburger title="NEWS" />
             {
                 isAdmin===true?(<div className="addEvent">
             <button onClick={() => setPopVisible(!popVisible)}>ADD NOTICE</button>

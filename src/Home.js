@@ -44,7 +44,7 @@ const Home = () => {
     return (
         <section>
             <NavigationBar />
-            <Hamburger />
+            <Hamburger title="HOME" />
 
             <div className="home"><br/>
                 <h3>RV Togetherness Festival</h3>

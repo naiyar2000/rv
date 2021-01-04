@@ -8,7 +8,7 @@ import Hamburger from './Hamburger';
 const Teams = () => {
     return (
         <div>
-            <NavigationBar /><Hamburger /><hr/>
+            <NavigationBar /><Hamburger title="TEAMS" /><hr/>
             <br/>
             <div className="selectionTeams">
                     <button>Members</button>

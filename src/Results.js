@@ -140,7 +140,7 @@ const Results = () => {
         }
 
             <NavigationBar />
-            <Hamburger />
+            <Hamburger title="RESULTS" />
             <div className="resultSection">
                 <div className="selectionTabs">
                     <button>Sports</button>

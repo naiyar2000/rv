@@ -53,7 +53,7 @@ const Schedule = () => {
     return (
         <div>
             <NavigationBar />
-            <Hamburger />
+            <Hamburger title="SCHEDULE" />
             <hr/>
             <br/>
 

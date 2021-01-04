@@ -13,7 +13,7 @@ const Scores = () => {
 
     return (
         <div>
-            <NavigationBar /><Hamburger /><hr/>
+            <NavigationBar /><Hamburger title="SCORES" /><hr/>
             <br/>
 
             <div className="resultSection">

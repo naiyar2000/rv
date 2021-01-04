@@ -5,15 +5,17 @@ import { AuthContext } from './Auth';
 import app from './base';
 import "./Hamburger.css";
 
-const Hamburger = () => {
+const Hamburger = ({title}) => {
 
     const [show, setShow] = useState(false);
     const toggle = () => {
         setShow(!show);
     }
 
+
     const { currentUser } = useContext(AuthContext);
     const [isAdmin, setAdmin] = useState(false);
+
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -29,6 +31,7 @@ const Hamburger = () => {
 
     return (
         <div className="HamburgerMenu">
+            <h4 style={{margin: 0, paddingLeft: 50, paddingTop: 15, color: "#ffffff"}}>{title}</h4>
             <i onClick={()=>toggle()} style={{visibility: show ? "hidden": "visible"}} className="fa fa-bars fa-2x"/>
             <CSSTransition
                 in={show}
@@ -44,8 +47,12 @@ const Hamburger = () => {
                     <h1>RV Togetherness</h1>
                 </div>
                 <ul className="navbar-nav">
-                    <li onClick={()=>toggle()} className="nav-item"><Link to="/" className="nav-link"><span className="link-text">HOME</span></Link></li>
-                    {isAdmin===true?<li onClick={()=>toggle()} className="nav-item"><Link to="/results" className="nav-link"><span className="link-text">RESULTS</span></Link></li>: null}
+                    <li onClick={(e)=>
+                            toggle()
+                        } className="nav-item"><Link to="/" className="nav-link"><span className="link-text">HOME</span></Link></li>
+                    {isAdmin===true?<li onClick={()=>{
+                        toggle();
+                    }} className="nav-item"><Link to="/results" className="nav-link"><span className="link-text">RESULTS</span></Link></li>: null}
                     <li onClick={()=>toggle()} className="nav-item"><Link to="/schedule" className="nav-link"><span className="link-text">SCHEDULE</span></Link></li>
                     <li onClick={()=>toggle()} className="nav-item"><Link to="/scores" className="nav-link"><span className="link-text">SCORES</span></Link></li>
                     <li onClick={()=>toggle()} className="nav-item"><Link to="/teams" className="nav-link"><span className="link-text">TEAMS</span></Link></li>
