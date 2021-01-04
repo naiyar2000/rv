@@ -41,7 +41,7 @@ const Hamburger = () => {
                     <i onClick={()=>toggle()} className="fa fa-close fa-2x"/>
                 </div>
                 <div className="logo">
-                    <h1>Logo/image</h1>
+                    <h1>RV Togetherness</h1>
                 </div>
                 <ul className="navbar-nav">
                     <li onClick={()=>toggle()} className="nav-item"><Link to="/" className="nav-link"><span className="link-text">HOME</span></Link></li>

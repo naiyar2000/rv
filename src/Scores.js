@@ -2,6 +2,8 @@ import React from 'react'
 import "./Scores.css"
 import "./Results.css"
 import NavigationBar from './NavigationBar';
+import Hamburger from './Hamburger';
+
 
 const Scores = () => {
     let month = new Date().getMonth();
@@ -11,7 +13,7 @@ const Scores = () => {
 
     return (
         <div>
-            <NavigationBar /><hr/>
+            <NavigationBar /><Hamburger /><hr/>
             <br/>
 
             <div className="resultSection">
@@ -38,15 +40,7 @@ const Scores = () => {
                     <span><b>ORGANIZING</b></span>
                     <span><b>FORM</b></span>
                 </div>
-                <div className="scoredetail">
-                    <span>RED FIRE</span>
-                    <span><b>5</b></span>
-                    <span><b>WON</b></span>
-                    <span><b>LOST</b></span>
-                    <span><b>TIE</b></span>
-                    <span><b>ORGANIZING</b></span>
-                    <span><b>FORM</b></span>
-                </div>
+                
             </div>
         </div>
     )

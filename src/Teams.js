@@ -1,12 +1,14 @@
 import React from 'react'
 import NavigationBar from './NavigationBar';
 import "./Teams.css"
+import Hamburger from './Hamburger';
+
 
 
 const Teams = () => {
     return (
         <div>
-            <NavigationBar /><hr/>
+            <NavigationBar /><Hamburger /><hr/>
             <br/>
             <div className="selectionTeams">
                     <button>Members</button>

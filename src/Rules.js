@@ -1,11 +1,13 @@
 import React from 'react'
 import "./Scores.css"
 import NavigationBar from './NavigationBar';
+import Hamburger from './Hamburger';
+
 
 const Rules = () => {
     return (
         <div>
-            <NavigationBar /><hr/>
+            <NavigationBar /><Hamburger /><hr/>
             <br/>
             <div className="resultSection">
                 <div className="selectionTabs">

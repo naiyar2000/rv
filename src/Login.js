@@ -39,7 +39,7 @@ const Login = ({ history }) => {
         <h1>Log in</h1>
         <form onSubmit={handleLogin}>
             <label>
-            Name
+            Email address
             </label> <br/>
             <input className="emailInput" name="email" type="email" /> <br/>
             <label>

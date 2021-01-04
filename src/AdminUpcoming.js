@@ -267,18 +267,17 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
         }
 
         <div className="upcomingEvents">
-            <div>
-            <div>{code}</div>
-            <div className="events">{event}</div>
-            <div>{team1} VS {team2}</div>
-            </div>
-            <div>
-            <div>{slot}</div>
-            <div className="Ubutton">
-                {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
-                {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
-            </div>
-            </div>
+            
+                <div>{code}</div>
+                <div className="events">{event}</div>
+                <div>{team1} VS {team2}</div>
+            
+                <div>{slot}</div>
+                <div className="Ubutton">
+                    {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
+                    {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
+                </div>
+            
         </div>
         </>
     )

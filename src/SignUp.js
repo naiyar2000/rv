@@ -36,7 +36,7 @@ const SignUp = ({history}) => {
             <h1>Sign up</h1>
             <form onSubmit={handleSignUp}>
                 <label>
-                Name
+                Email Address
                 </label> <br/>
                 <input className="emailInput" name="email" type="email" /> <br/>
                 <label>

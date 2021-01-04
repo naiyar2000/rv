@@ -1,4 +1,5 @@
-.selectionTabs>button {
+@media screen and (max-width: 600px){
+  .selectionTabs>button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,36 +27,109 @@
     width: 661px;
     height: 40px;
     border-radius: 5px;
-}
+  }
 
-.scoreheading{
+  .scoreheading{
+      display: flex;
+      width: 90vw;
+      background-color: #E2E2E2;
+      padding: 0.7em;
+      border-radius: 5px;
+      color: black;
+      font-weight: 500;
+      font-size: smaller;
+      margin-right: 0.2em;
+      justify-content: space-between;
+  }
+
+  .scoreheading>span {
+    font-size: small;
     display: flex;
-    background-color: #E2E2E2;
+  }
+
+  .scoredetail{
+    background-color: white;
     padding: 0.7em;
     border-radius: 5px;
     color: black;
     font-weight: 500;
     margin-right: 0.2em;
     justify-content: space-between;
+  }
+
+  div.teamname{
+    width: 10%;
+    text-align: center;
+  }
+
+  div.attended{
+    width: 10%;
+    text-align: center;
+  }
+
 }
 
-.scoredetail{
-  background-color: white;
-  padding: 0.7em;
-  border-radius: 5px;
-  color: black;
-  font-weight: 500;
-  margin-right: 0.2em;
-  justify-content: space-between;
-}
+@media screen and (min-width: 900px){
+  .selectionTabs>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    border: #00000000 solid 1px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .selectionTabs>button:active{
+    border: #000000 solid 1px;
+  }
 
-div.teamname{
-  width: 10%;
-  text-align: center;
-}
+  .searchEventBar {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #ECECEC;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 661px;
+    height: 40px;
+    border-radius: 5px;
+  }
 
-div.attended{
-  width: 10%;
-  text-align: center;
-}
+  .scoreheading{
+      display: flex;
+      background-color: #E2E2E2;
+      padding: 0.7em;
+      border-radius: 5px;
+      color: black;
+      font-weight: 500;
+      margin-right: 0.2em;
+      justify-content: space-between;
+  }
 
+  .scoredetail{
+    background-color: white;
+    padding: 0.7em;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    margin-right: 0.2em;
+    justify-content: space-between;
+  }
+
+  div.teamname{
+    width: 10%;
+    text-align: center;
+  }
+
+  div.attended{
+    width: 10%;
+    text-align: center;
+  }
+
+
+}
