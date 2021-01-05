@@ -177,10 +177,10 @@ const Results = () => {
             {
                 filteredEvents.length===0? (
                     upcomingEvents.length !==0?(upcomingEvents.map((res) => {
-                    return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code}/>
+                    return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code} isCompleted={res.isCompleted} winner={res.winner}/>
                 })):(<div className="spinnerArea"><div className="spinner"><div></div><div></div></div></div>)) : (
                     filteredEvents.map((res) => {
-                        return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code}/>
+                        return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code} isCompleted={res.isCompleted} winner={res.winner}/>
                     })
                 )
             }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./AdminUpcoming.css"
 import app from './base';
 
-const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, index, code}) => {
+const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, index, code, isCompleted, winner}) => {
 
     let [popVisible, setVisible] = useState(false);
     let [UpdatepopVisible, setUpdateVisible] = useState(false);
@@ -307,10 +307,16 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                 <div>{team1} VS {team2}</div>
             
                 <div>{slot}</div>
-                <div className="Ubutton">
-                    {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
-                    {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
-                </div>
+
+                {
+                    isCompleted===false? (
+                        <div className="Ubutton">
+                        {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
+                        {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
+                    </div>
+                    ): (<div>{winner}</div>)
+                }
+               
             
         </div>
         </>
