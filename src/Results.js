@@ -161,20 +161,22 @@ const Results = () => {
                     <button>Sports</button>
                     <button onClick={() => console.log(text)}>Cultural</button>
                 </div>
+                <div className="searchContainer">
                 <input
                     type="text"
                     className="searchEventBar"
                     onChangeCapture={e => onChangeText(e)}
                     placeholder="&#xF042;SELECT AND SEARCH THE EVENT"
                 />
-                <div className="eventDate">
+                {/* <div className="eventDate">
                     {months[month]} {date}, {year} 
-                </div>
+                </div> */}
                 <button className="addEvent" onClick={() => {
                         setAddEventVisible(!AddEventpopVisible);
                         // console.log(new Date().toLocaleDateString("en-US"));
                     }
                 }>ADD EVENT</button>
+                </div>
             </div>
             {
                 filteredEvents.length===0? (

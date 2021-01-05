@@ -10,11 +10,15 @@ const Home = () => {
     // const [event, setEvent] = useState(" ");
     // let today = new Date().toLocaleDateString("en-US");
     let today = new Date().getTime();
+    let nextDay = new Date();
+    nextDay.setDate(new Date().getDate() + 1);
+
     const [upcomingEvents, setUpcomingEvents] = useState([]);
     let [red, setRed] = useState({});
     let [blue, setBlue] = useState({});
     let [green, setGreen] = useState({});
     let [white, setWhite] = useState({});
+    console.log(nextDay.getTime())
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -29,9 +33,9 @@ const Home = () => {
                 setGreen(gdata.data());
                 setWhite(wdata.data());
                 data.docs.forEach((res) => {
-                    // if(today.valueOf() < res.data().date.toDate().valueOf()) {
+                    if(today.valueOf() < res.data().date.toDate().valueOf() && nextDay.getTime().valueOf() > res.data().date.toDate().valueOf())  {
                         setUpcomingEvents(oldEvents => [...oldEvents, res.data()]);
-                    // }
+                    }
                 });
                 // console.log(data.docs[0].data().date.toDate());
             } catch (error) {
