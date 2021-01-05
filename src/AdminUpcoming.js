@@ -4,6 +4,8 @@ import app from './base';
 
 const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, index, code, isCompleted, winner}) => {
 
+
+
     let [popVisible, setVisible] = useState(false);
     let [UpdatepopVisible, setUpdateVisible] = useState(false);
 
@@ -321,7 +323,7 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                         {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
                         {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
                     </div>
-                    ): (<div>{winner}</div>)
+                    ): ( winner?(<div style={{fontSize: 15, color: '#25CA46', fontWeight: 'bold'}}>{winner} Won!!</div>):(null))
                 }
                
             
