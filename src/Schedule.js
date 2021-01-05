@@ -80,10 +80,10 @@ const Schedule = () => {
                 filteredEvents.length===0 ? (
                     upcomingEvents.length !==0?(
                 upcomingEvents.map((res) => {
-                    return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code}/>
+                    return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted}/>
                 })):(<div className="spinnerArea"><div className="spinner"><div></div><div></div></div></div>)) : (
                     filteredEvents.map((res) => {
-                        return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code}/>
+                        return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted}/>
                     })
                 )
             }

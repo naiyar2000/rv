@@ -91,7 +91,8 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
         } else {
             try {
                 await app.firestore().collection('events').doc(`${index}`).update({
-                    winner: selectedTeam
+                    winner: selectedTeam, 
+                    isCompleted: true
                 })
                 const Tdata = await app.firestore().collection('teams').doc(`${selectedTeam}`).get();
                 const LTdata = await app.firestore().collection('teams').doc(`${_team1}`).get();
