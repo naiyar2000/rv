@@ -58,8 +58,8 @@ const Home = () => {
             </div>
 
             <div className="calendar">
-                    <h5>Upcoming events</h5>
-                    <h5>Calendar</h5>
+                    <h4>Upcoming events</h4>
+                    {/* <h5>Calendar</h5> */}
             </div>
             <hr/>
 
@@ -140,7 +140,7 @@ const Home = () => {
                         <div>35</div>
                     </div>
                 </div>
-                <div className="red">
+                <div className="red" style={{color: '#ffffff'}}>
                     <div className="teamHeader">
                         <div className="block">RF</div>
                         <div className="teamName">Red Fire</div>
@@ -192,7 +192,7 @@ const Home = () => {
                         <div>{white.Opoints}</div>
                     </div>
                 </div>
-                <div className="blue">
+                <div className="blue" color={{color: '#ffffff'}}>
                 <div className="teamHeader">
                         <div className="block">BO</div>
                         <div className="teamName">Blue Ocean</div>
@@ -218,7 +218,7 @@ const Home = () => {
                         <div>{blue.Opoints}</div>
                     </div>
                 </div>
-                <div className="green">
+                <div className="green" style={{color: '#ffffff'}}>
                 <div className="teamHeader">
                         <div className="block">GE</div>
                         <div className="teamName">Green Earth</div>

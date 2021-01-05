@@ -196,6 +196,7 @@
         height: 360px;
         padding: 1.5em;
         background-color: #ffffff;
+        overflow-y: scroll;
     }
     
     .pcontainer>h5 {
