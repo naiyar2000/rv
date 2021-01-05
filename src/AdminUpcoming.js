@@ -42,6 +42,10 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
     const submitScore = async () => {
         if(_team1P>_team2P) {
             try {
+                await app.firestore().collection('events').doc(`${index}`).update({
+                    winner: selectedTeam,
+                    isCompleted: true
+                })
                 const Tdata = await app.firestore().collection('teams').doc(`${selectedTeam}`).get();
                 const LTdata = await app.firestore().collection('teams').doc(`${_team2}`).get();
                 const OTdata1 = await app.firestore().collection('teams').doc(`${_team3}`).get();
@@ -84,6 +88,9 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
             
         } else {
             try {
+                await app.firestore().collection('events').doc(`${index}`).update({
+                    winner: selectedTeam
+                })
                 const Tdata = await app.firestore().collection('teams').doc(`${selectedTeam}`).get();
                 const LTdata = await app.firestore().collection('teams').doc(`${_team1}`).get();
                 const OTdata1 = await app.firestore().collection('teams').doc(`${_team3}`).get();
