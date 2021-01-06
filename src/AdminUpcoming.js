@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./AdminUpcoming.css"
 import app from './base';
 
-const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, index, code, isCompleted, winner}) => {
+const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, index, code, isCompleted, winner, date}) => {
 
 
 
@@ -313,6 +313,7 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
         <div className="upcomingEvents">
             
                 <div>{code}</div>
+                <div>{date.toDate().toString()[0]}{date.toDate().toString()[1]}{date.toDate().toString()[2]},{date.toDate().toString()[3]}{date.toDate().toString()[4]}{date.toDate().toString()[5]}{date.toDate().toString()[6]}{date.toDate().toString()[7]}{date.toDate().toString()[8]}{date.toDate().toString()[9]}{date.toDate().toString()[10]}{date.toDate().toString()[11]}{date.toDate().toString()[12]}{date.toDate().toString()[13]}{date.toDate().toString()[14]}{date.toDate().toString()[15]}</div>
                 <div className="events">{event}</div>
                 <div>{team1} VS {team2}</div>
             
@@ -324,7 +325,7 @@ const AdminUpcoming = ({event, slot, team1, team2, Oteam1, Oteam2, isAdmin, inde
                         {isAdmin===true?(<button className="enter" onClick={() => {setVisible(!popVisible)}}>ENTER</button>):(null)}
                         {isAdmin===true?(<button className="enter" onClick={() => {setUpdateVisible(!UpdatepopVisible)}}>Update</button>):(null)}
                     </div>
-                    ): ( winner?(<div style={{fontSize: 15, color: '#25CA46', fontWeight: 'bold'}}>{winner} Won!!</div>):(null))
+                    ): ( winner?(<div style={{fontSize: 15, color: '#25CA46', fontWeight: 'bold'}}>{winner} won</div>):(null))
                 }
                
             

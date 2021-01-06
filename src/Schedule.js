@@ -70,20 +70,20 @@ const Schedule = () => {
                     placeholder="&#xF042;SELECT AND SEARCH THE EVENT"
             />
 
-            <div className="resultSection">
+            {/* <div className="resultSection">
                 <div className="eventDate">
                     {months[month]} {date}, {year} 
                 </div>
-            </div>
+            </div> */}
 
             {
                 filteredEvents.length===0 ? (
                     upcomingEvents.length !==0?(
                 upcomingEvents.map((res) => {
-                    return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted}/>
+                    return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted} date={res.date}/>
                 })):(<div className="spinnerArea"><div className="spinner"><div></div><div></div></div></div>)) : (
                     filteredEvents.map((res) => {
-                        return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted}/>
+                        return <AdminUpcoming key={res.index} slot={res.Slot} index={res.index} event={res.eventname} team1={res.Team1} team2={res.Team2} isAdmin={false} code={res.Code} winner={res.winner} isCompleted={res.isCompleted} date={res.date}/>
                     })
                 )
             }
@@ -92,12 +92,12 @@ const Schedule = () => {
             <div className="footer">
                     <div>
                         <h3>Coordinators:</h3>
-                        <h5>Name 1</h5>
-                        <h5>Name 2</h5>
+                        <h5>Rajendra Tapadia</h5>
+                        
                     </div>
                     <div>
                         <h3>Contacts:</h3>
-                        <h5>8249275008</h5>
+                        <h5>+919490233170</h5>
                     </div>
             </div>
 

@@ -19,6 +19,17 @@ const Rules = () => {
                     <span>Search and Select the Event</span>
                 </div>
             </div>
+            <div className="footer">
+                    <div>
+                        <h3>Coordinators:</h3>
+                        <h5>Rajendra Tapadia</h5>
+                        
+                    </div>
+                    <div>
+                        <h3>Contacts:</h3>
+                        <h5>+919490233170</h5>
+                    </div>
+            </div>
         </div>
     )
 }

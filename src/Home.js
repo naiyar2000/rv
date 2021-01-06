@@ -58,7 +58,7 @@ const Home = () => {
             </div>
 
             <div className="calendar">
-                    <h4>Upcoming events</h4>
+                    <h4>Today's events</h4>
                     {/* <h5>Calendar</h5> */}
             </div>
             <hr/>
@@ -192,7 +192,7 @@ const Home = () => {
                         <div>{white.Opoints}</div>
                     </div>
                 </div>
-                <div className="blue" color={{color: '#ffffff'}}>
+                <div className="blue" style={{color: '#ffffff'}}>
                 <div className="teamHeader">
                         <div className="block">BO</div>
                         <div className="teamName">Blue Ocean</div>
@@ -251,12 +251,12 @@ const Home = () => {
             <div className="footer">
                     <div>
                         <h3>Coordinators:</h3>
-                        <h5>Name 1</h5>
-                        <h5>Name 2</h5>
+                        <h5>Rajendra Tapadia</h5>
+                        
                     </div>
                     <div>
                         <h3>Contacts:</h3>
-                        <h5>8249275008</h5>
+                        <h5>+919490233170</h5>
                     </div>
             </div>
 
