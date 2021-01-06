@@ -164,7 +164,12 @@ const Results = () => {
                     ):(
                         <button onClick={() => setSports(true)}>Sports</button>
                     )}
-                    <button onClick={() => setSports(false)}>Cultural</button>
+                    {isSports===false?(
+                        <button onClick={() => setSports(false)} style={{border: '#000000 solid 2px'}}>Cultural</button>
+
+                    ):(
+                        <button onClick={() => setSports(false)}>Cultural</button>
+                        )}
                 </div>
                 <div className="searchContainer">
                 <input
