@@ -16,7 +16,7 @@ const Schedule = () => {
     const [filteredEvents, setFilteredEvents] = useState([]);
 
     const [text, setText] = useState(" ");
-
+    const [isSports, setSports] = useState(true);
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -54,21 +54,31 @@ const Schedule = () => {
         <div>
             <NavigationBar />
             <Hamburger title="SCHEDULE" />
-            <hr/>
             <br/>
 
-            <div className="selectionTabs">
-                    <button>Sports</button>
-                    <button>Cultural</button>
-            </div>
-            <br/>
+            <div className="resultSection">
+                <div className="selectionTabs">
+                    {isSports===true?(
+                                <button onClick={() => setSports(true)} style={{border: '#000000 solid 2px'}}>Sports</button>
+                            ):(
+                                <button onClick={() => setSports(true)}>Sports</button>
+                            )}
+                            {isSports===false?(
+                                <button onClick={() => setSports(false)} style={{border: '#000000 solid 2px'}}>Cultural</button>
 
-            <input
+                            ):(
+                                <button onClick={() => setSports(false)}>Cultural</button>
+                                )}
+                </div>
+                <input
                     type="text"
                     className="searchEventBar"
                     onChangeCapture={e => onChangeText(e)}
                     placeholder="&#xF042;SELECT AND SEARCH THE EVENT"
-            />
+                />
+            </div>
+
+            
 
             {/* <div className="resultSection">
                 <div className="eventDate">
