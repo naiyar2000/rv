@@ -9,7 +9,7 @@ const Home = () => {
     // const { currentUser } = useContext(AuthContext);
     // const [event, setEvent] = useState(" ");
     // let today = new Date().toLocaleDateString("en-US");
-    let today = new Date().getTime();
+    let today = new Date();
     let nextDay = new Date();
     nextDay.setDate(new Date().getDate() + 1);
 
@@ -58,7 +58,7 @@ const Home = () => {
             </div>
 
             <div className="calendar">
-                    <h4>Today's events</h4>
+                    <h4>Today's events ({today.toLocaleDateString('en-US')})</h4>
                     {/* <h5>Calendar</h5> */}
             </div>
             <hr/>

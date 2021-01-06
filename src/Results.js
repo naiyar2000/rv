@@ -30,6 +30,7 @@ const Results = () => {
 
 
     const [text, setText] = useState(" ");
+    const [isSports, setSports] = useState(true);
 
     const submitAddEvent = async() => {
         try {
@@ -158,8 +159,12 @@ const Results = () => {
             <Hamburger title="RESULTS" />
             <div className="resultSection">
                 <div className="selectionTabs">
-                    <button>Sports</button>
-                    <button onClick={() => console.log(text)}>Cultural</button>
+                    {isSports===true?(
+                        <button onClick={() => setSports(true)} style={{border: '#000000 solid 2px'}}>Sports</button>
+                    ):(
+                        <button onClick={() => setSports(true)}>Sports</button>
+                    )}
+                    <button onClick={() => setSports(false)}>Cultural</button>
                 </div>
                 <div className="searchContainer">
                 <input
@@ -179,6 +184,8 @@ const Results = () => {
                 </div>
             </div>
             {
+
+                isSports===true?(
                 filteredEvents.length===0? (
                     upcomingEvents.length !==0?(upcomingEvents.map((res) => {
                     return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code} isCompleted={res.isCompleted} winner={res.winner} date={res.date}/>
@@ -186,7 +193,7 @@ const Results = () => {
                     filteredEvents.map((res) => {
                         return <AdminUpcoming key={res.index} eventLength={upcomingEvents.length} index={res.index} slot={res.Slot} event={res.eventname} team1={res.Team1} team2={res.Team2} Oteam1={res.OTeam1} Oteam2={res.OTeam2} isAdmin={true} code={res.Code} isCompleted={res.isCompleted} winner={res.winner} date={res.date}/>
                     })
-                )
+                )):(null)
             }
         </div>
     )
