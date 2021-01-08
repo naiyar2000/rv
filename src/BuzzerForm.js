@@ -60,7 +60,6 @@ const BuzzerForm = () => {
         <div>
             <NavigationBar />
             <Hamburger title="BUZZER"/>
-
             <div className="inputForm">
                 <label>
                     NAME
@@ -69,24 +68,24 @@ const BuzzerForm = () => {
                     <input className="emailInput" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
                     {/* <button onClick={() => reset()}>Reset</button>
                     <button onClick={() => activate()}>Activate</button> */}
-                </div> <br/>
+                </div>
                 <label>
                     PHONE NO.
                 </label> <br/>
                 <div className="secondInput">
-                    <input className="passwordInput" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
+                    <input className="emailInput" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
+                </div>
+                <label>
+                    VILLA NO.
+                </label> <br/>
+                <div className="firstInput">
+                    <input type="text" className="passwordInput" onChange={(e) => setVilla(e.target.value)} />
                     <select name="team" id="team" onSelect={(e) => setGroup(e.target.value)}>
                         <option value="red">RED FIRE</option>
                         <option value="green">GREEN EARTH</option>
                         <option value="white">WHITE WINDS</option>
                         <option value="blue">BLUE OCEAN</option>
                     </select>
-                </div> <br/>
-                <label>
-                    VILLA NO.
-                </label> <br/>
-                <div className="firstInput">
-                    <input type="text" className="emailInput" onChange={(e) => setVilla(e.target.value)} />
                 </div>
             </div>
             
@@ -104,8 +103,6 @@ const BuzzerForm = () => {
                     </div>
                     )
             }
-            
-
         </div>
     )
 }

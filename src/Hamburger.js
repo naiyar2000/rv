@@ -55,14 +55,14 @@ const Hamburger = ({title}) => {
                     {isAdmin===true?<li onClick={()=>{
                         toggle();
                     }} className="nav-item"><Link to="/results" className="nav-link"><span className="link-text">RESULTS</span></Link></li>: null}
-                    <li onClick={()=>toggle()} className="nav-item"><Link to="/schedule" className="nav-link"><span className="link-text">SCHEDULE</span></Link></li>
-                    <li onClick={()=>toggle()} className="nav-item"><Link to="/scores" className="nav-link"><span className="link-text">SCORES</span></Link></li>
+                    {/* <li onClick={()=>toggle()} className="nav-item"><Link to="/schedule" className="nav-link"><span className="link-text">SCHEDULE</span></Link></li>
+                    <li onClick={()=>toggle()} className="nav-item"><Link to="/scores" className="nav-link"><span className="link-text">SCORES</span></Link></li> */}
                     <li onClick={()=>toggle()} className="nav-item"><Link to="/buzzerForm" className="nav-link"><span className="link-text">Buzzer</span></Link></li>
                     {isAdmin===true?<li onClick={()=>{
                         toggle();
                     }} className="nav-item"><Link to="/buzzerAdmin" className="nav-link"><span className="link-text">BuzzerAdmin</span></Link></li>: null}
-                    <li onClick={()=>toggle()} className="nav-item"><Link to="/teams" className="nav-link"><span className="link-text">TEAMS</span></Link></li>
-                    <li onClick={()=>toggle()} className="nav-item"><Link to="/news" className="nav-link"><span className="link-text">NEWS</span></Link></li>
+                    {/* <li onClick={()=>toggle()} className="nav-item"><Link to="/teams" className="nav-link"><span className="link-text">TEAMS</span></Link></li>
+                    <li onClick={()=>toggle()} className="nav-item"><Link to="/news" className="nav-link"><span className="link-text">NEWS</span></Link></li> */}
                     <li onClick={()=> {toggle(); app.auth().signOut();}} className="nav-item"><Link to="" className="nav-link"><span className="link-text">SIGN OUT</span></Link></li>
 
                 </ul>
