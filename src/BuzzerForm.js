@@ -65,8 +65,8 @@ const BuzzerForm = () => {
             {
                 currentUser?(
                     <>
-                        <NavigationBar />
-                        <Hamburger title="BUZZER" />
+                        {/* <NavigationBar />
+                        <Hamburger title="BUZZER" /> */}
                     </>
                 ) : (null)
             }
