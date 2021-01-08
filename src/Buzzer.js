@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import app from './base';
 import "./Buzzer.css"
 
-const Buzzer = ({name, phone, group}) => {
+const Buzzer = ({name, phone, group, villa}) => {
 
     const [isWinner, setWinner] = useState(true)
 
@@ -20,6 +20,7 @@ const Buzzer = ({name, phone, group}) => {
                     name: name,
                     phone: phone,
                     group: group,
+                    villa: villa,
                     winner: true
                 })
             }

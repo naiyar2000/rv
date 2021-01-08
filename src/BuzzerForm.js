@@ -32,6 +32,7 @@ const BuzzerForm = () => {
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState(null);
+    const [villa, setVilla] = useState("");
     const [group, setGroup] = useState("red");
 
     const reset = async () => {
@@ -80,14 +81,19 @@ const BuzzerForm = () => {
                         <option value="white">WHITE</option>
                         <option value="blue">BLUE</option>
                     </select>
-                </div>
+                </div> <br/>
+                <label>
+                    VILLA NO.
+                </label> <br/>
+                <input type="text" className="emailInput" onChange={(e) => setVilla(e.target.value)} />
             </div>
             
             {
                 isActive?(
+                    name.length!==0&&phone!==null&&villa.length!==0?(
                     <div className="buzzerComponent">
-                        <Buzzer name={name} phone={phone} group={group}/>
-                    </div>
+                        <Buzzer name={name} phone={phone} group={group} villa={villa}/>
+                    </div>):(<div>Please Enter all the fields</div>)
                     ) : (
                     <div>
                         buzzer not active

@@ -12,6 +12,7 @@ import Teams from './Teams';
 import News from './News';
 import Rules from './Rules';
 import BuzzerForm from './BuzzerForm';
+import BuzzerAdmin from './BuzzerAdmin';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route exact path="/news" component={News}/>
           <Route exact path="/rules" component={Rules}/>
           <Route exact path="/buzzerForm" component={BuzzerForm}/>
+          <Route exact path="/buzzerAdmin" component={BuzzerAdmin}/>
       </Router>
     </AuthProvider>
   );
