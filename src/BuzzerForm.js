@@ -16,15 +16,15 @@ const BuzzerForm = () => {
 
     React.useEffect(() => {
 
-        const fetchData = async () => {
-            try {
-                const data = await app.firestore().collection('user').doc(`${currentUser.uid}`).get();
-                setAdmin(data.data().isAdmin);
-            } catch (error) {
-                alert(error);
-            }
-        }
-        fetchData();
+        // const fetchData = async () => {
+        //     try {
+        //         const data = await app.firestore().collection('user').doc(`${currentUser.uid}`).get();
+        //         setAdmin(data.data().isAdmin);
+        //     } catch (error) {
+        //         alert(error);
+        //     }
+        // }
+        // fetchData();
         return app.firestore().collection('buzzer').onSnapshot(snapshot => 
                 setActive(snapshot.docs[0].data().isActive));
             
@@ -35,41 +35,49 @@ const BuzzerForm = () => {
     const [villa, setVilla] = useState("");
     const [group, setGroup] = useState("red");
 
-    const reset = async () => {
-        try {
-            await app.firestore().collection('buzzer').doc('first').update({
-                winner: false,
-                isActive: false, 
-                name: "",
-                phone: "",
-                villa: "",
-                group: ""
-            })
-        } catch (error) {
-            alert(error);
-        }
-    }
+    // const reset = async () => {
+    //     try {
+    //         await app.firestore().collection('buzzer').doc('first').update({
+    //             winner: false,
+    //             isActive: false, 
+    //             name: "",
+    //             phone: "",
+    //             villa: "",
+    //             group: ""
+    //         })
+    //     } catch (error) {
+    //         alert(error);
+    //     }
+    // }
 
-    const activate = async () => {
-        try {
-            await app.firestore().collection('buzzer').doc('first').update({
-                isActive: true
-            })
-        } catch (error) {
-            alert(error);
-        }
-    }
+    // const activate = async () => {
+    //     try {
+    //         await app.firestore().collection('buzzer').doc('first').update({
+    //             isActive: true
+    //         })
+    //     } catch (error) {
+    //         alert(error);
+    //     }
+    // }
 
     return (
         <div>
-            <NavigationBar />
-            <Hamburger title="BUZZER"/>
+            {
+                currentUser?(
+                    <>
+                        <NavigationBar />
+                        <Hamburger title="BUZZER" />
+                    </>
+                ) : (null)
+            }
+            {/* <NavigationBar /> */}
+            {/* <Hamburger title="BUZZER"/> */}
             <div className="inputForm">
                 <label>
                     NAME
                 </label> <br/>
                 <div className="firstInput">
-                    <input className="emailInput" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
+                    <input className="emailInput1" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
                     {/* <button onClick={() => reset()}>Reset</button>
                     <button onClick={() => activate()}>Activate</button> */}
                 </div>
@@ -77,13 +85,13 @@ const BuzzerForm = () => {
                     PHONE NO.
                 </label> <br/>
                 <div className="secondInput">
-                    <input className="emailInput" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
+                    <input className="emailInput1" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
                 </div>
                 <label>
                     VILLA NO.
                 </label> <br/>
                 <div className="firstInput">
-                    <input type="text" className="passwordInput" onChange={(e) => setVilla(e.target.value)} />
+                    <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} />
                     <select name="team" id="team" onSelect={(e) => setGroup(e.target.value)}>
                         <option value="red">RED FIRE</option>
                         <option value="green">GREEN EARTH</option>

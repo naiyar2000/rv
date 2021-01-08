@@ -8,11 +8,30 @@
     justify-content: space-between;
 }
 
-.emailInput {
+.emailInput1 {
+    width: 320px;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+    margin-bottom: 3em;
+}
+
+.passwordInput1 {
+    width: 320px;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+}
+
+.emailInput1 {
     width:100vw;
 }
 
-.passwordInput {
+.passwordInput1 {
     width: auto;
 }
 
