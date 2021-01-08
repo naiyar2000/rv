@@ -39,7 +39,11 @@ const BuzzerForm = () => {
         try {
             await app.firestore().collection('buzzer').doc('first').update({
                 winner: false,
-                isActive: false
+                isActive: false, 
+                name: "",
+                phone: "",
+                villa: "",
+                group: ""
             })
         } catch (error) {
             alert(error);
