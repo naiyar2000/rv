@@ -11,6 +11,7 @@ import Scores from './Scores';
 import Teams from './Teams';
 import News from './News';
 import Rules from './Rules';
+import BuzzerForm from './BuzzerForm';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path="/teams" component={Teams}/>
           <Route exact path="/news" component={News}/>
           <Route exact path="/rules" component={Rules}/>
+          <Route exact path="/buzzerForm" component={BuzzerForm}/>
       </Router>
     </AuthProvider>
   );

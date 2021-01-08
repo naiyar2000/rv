@@ -162,6 +162,7 @@
         align-items: center;
         width: 100%;
         height: 30vh;
+        transform:translateX(-20vh)
     }
     
     .spinner {
