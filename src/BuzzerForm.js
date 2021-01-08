@@ -67,8 +67,8 @@ const BuzzerForm = () => {
                 </label> <br/>
                 <div className="firstInput">
                     <input className="emailInput" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
-                    <button onClick={() => reset()}>Reset</button>
-                    <button onClick={() => activate()}>Activate</button>
+                    {/* <button onClick={() => reset()}>Reset</button>
+                    <button onClick={() => activate()}>Activate</button> */}
                 </div> <br/>
                 <label>
                     PHONE NO.
@@ -95,8 +95,8 @@ const BuzzerForm = () => {
                         <Buzzer name={name} phone={phone} group={group} villa={villa}/>
                     </div>):(<div>Please Enter all the fields</div>)
                     ) : (
-                    <div>
-                        buzzer not active
+                    <div className="buzzerinactive" >
+                        <span>Buzzer Not active</span>
                     </div>
                     )
             }

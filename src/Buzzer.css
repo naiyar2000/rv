@@ -1,10 +1,21 @@
-/* .buzzer {
-    width: 100px;
+.buzzerinactive {
+	cursor: pointer;
+	/* position: relative; */
+	padding: 2em;
+	border-radius: 50%;
+	/* line-height: 2.5rem; */
+	font-size: 2rem;
+    font-weight: 600;
     height: 100px;
-    background-color: blueviolet;
-    border: solid #000000ad 1px;
-    border-radius: 50%;
-} */
+    width: 100px;
+	
+	border: 1px solid #012880;
+	background-image: linear-gradient(-180deg, #85f5b4 0%, #07a329 100%);
+	box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
+							0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+}
 
 .buzzer {
 	cursor: pointer;
