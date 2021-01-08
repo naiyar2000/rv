@@ -1,36 +1,41 @@
-/* .buzzer {
-    width: 100px;
-    height: 100px;
-    background-color: blueviolet;
-    border: solid #000000ad 1px;
-    border-radius: 50%;
-} */
+.buzzerinactive {
+	background-color: red;
+	display: flex;
+	align-items: center;
+	width: 75vw;
+	height: 150px;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10%;
+	padding: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+	font-weight: bold;
+}
+
 
 .buzzer {
-	cursor: pointer;
-	/* position: relative; */
-	padding: 2em;
-	border-radius: 50%;
-	/* line-height: 2.5rem; */
-	font-size: 2rem;
-    font-weight: 600;
-    height: 100px;
-    width: 100px;
-	
-	border: 1px solid #012880;
-	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
-	box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
-							0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
-							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
-							0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+	background-color: rgb(30, 192, 30);
+	display: flex;
+	align-items: center;
+	width: 75vw;
+	height: 150px;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10%;
+	padding: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+	font-weight: bold;
 }
 
 .buzzer span {
-	color: transparent;
-	background-image: linear-gradient(0deg, #EE82DA 0%, #FEFAFD 100%);
-	-webkit-background-clip: text;
-	background-clip: text;
-	filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+	color: white;
+	
 }
 
 .buzzer::before {
@@ -64,4 +69,4 @@
 	filter: blur(1px);
 	opacity: 0.05;
 	background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
-}
+} 

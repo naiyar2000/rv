@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import app from './base';
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
+import "./BuzzerAmin.css"
+
 
 const BuzzerAdmin = () => {
 
@@ -9,7 +11,11 @@ const BuzzerAdmin = () => {
         try {
             await app.firestore().collection('buzzer').doc('first').update({
                 winner: false,
-                isActive: false
+                isActive: false,
+                name:"",
+                phone:"",
+                villa:"",
+                group:""
             })
         } catch (error) {
             alert(error);
@@ -46,15 +52,16 @@ const BuzzerAdmin = () => {
             <NavigationBar />
             <Hamburger title="Buzzer Admin" />
 
-            <button onClick={() => reset()}>Reset</button>
-            <button onClick={() => activate()}>Activate</button>
-
             <div>
-                <h4>Winner is {name}</h4>
-                <h5>Phone: {phone}</h5>
-                <h5>Villa: {villa}</h5>
-                <h5>Group: {group}</h5>
+                <h3>Winner is {name}</h3>
+                <h4>Phone: {phone}</h4>
+                <h4>Villa: {villa}</h4>
+                <h4>Group: {group}</h4>
             </div>
+
+            <button className="admin" onClick={() => reset()}>Reset</button><br/>
+            <button className="admin" onClick={() => activate()}>Activate</button>
+
         </div>
     )
 }

@@ -64,32 +64,33 @@ const BuzzerForm = () => {
         <div>
             <NavigationBar />
             <Hamburger title="BUZZER"/>
-
             <div className="inputForm">
                 <label>
                     NAME
                 </label> <br/>
                 <div className="firstInput">
                     <input className="emailInput" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
-                    <button onClick={() => reset()}>Reset</button>
-                    <button onClick={() => activate()}>Activate</button>
-                </div> <br/>
+                    {/* <button onClick={() => reset()}>Reset</button>
+                    <button onClick={() => activate()}>Activate</button> */}
+                </div>
                 <label>
                     PHONE NO.
                 </label> <br/>
                 <div className="secondInput">
-                    <input className="passwordInput" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
-                    <select name="team" id="team" onSelect={(e) => setGroup(e.target.value)}>
-                        <option value="red">RED</option>
-                        <option value="green">GREEN</option>
-                        <option value="white">WHITE</option>
-                        <option value="blue">BLUE</option>
-                    </select>
-                </div> <br/>
+                    <input className="emailInput" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
+                </div>
                 <label>
                     VILLA NO.
                 </label> <br/>
-                <input type="text" className="emailInput" onChange={(e) => setVilla(e.target.value)} />
+                <div className="firstInput">
+                    <input type="text" className="passwordInput" onChange={(e) => setVilla(e.target.value)} />
+                    <select name="team" id="team" onSelect={(e) => setGroup(e.target.value)}>
+                        <option value="red">RED FIRE</option>
+                        <option value="green">GREEN EARTH</option>
+                        <option value="white">WHITE WINDS</option>
+                        <option value="blue">BLUE OCEAN</option>
+                    </select>
+                </div>
             </div>
             
             {
@@ -97,15 +98,15 @@ const BuzzerForm = () => {
                     name.length!==0&&phone!==null&&villa.length!==0?(
                     <div className="buzzerComponent">
                         <Buzzer name={name} phone={phone} group={group} villa={villa}/>
-                    </div>):(<div>Please Enter all the fields</div>)
+                    </div>):(<div className="buzzerinactive" >
+                        <span>Please Enter all the fields</span>
+                    </div>)
                     ) : (
-                    <div>
-                        buzzer not active
+                    <div className="buzzerinactive" >
+                        <span>Buzzer Not active</span>
                     </div>
                     )
             }
-            
-
         </div>
     )
 }
