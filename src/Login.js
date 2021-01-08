@@ -35,11 +35,11 @@ const Login = ({ history }) => {
         <div className="title">
             RV TOGETHERNESS FESTIVAL <br/> <span className="spanText">Jan 1st to Feb 14th</span>
         </div>
-        <div className="buzzerDiv">
+        {/* <div className="buzzerDiv">
           <Link to="/buzzerForm">
             <button>GO TO BUZZER ROUND</button>
           </Link>
-        </div>
+        </div> */}
         <div className="formSide">
         <h1>Log in</h1>
         <form onSubmit={handleLogin}>
@@ -56,7 +56,7 @@ const Login = ({ history }) => {
         </form>
         </div>
     </div>
-  );
+  );got
 };
 
 export default withRouter(Login);
