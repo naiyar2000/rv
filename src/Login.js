@@ -56,7 +56,7 @@ const Login = ({ history }) => {
         </form>
         </div>
     </div>
-  );got
+  );
 };
 
 export default withRouter(Login);

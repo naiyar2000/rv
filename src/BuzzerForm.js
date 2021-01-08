@@ -33,7 +33,7 @@ const BuzzerForm = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState(null);
     const [villa, setVilla] = useState("");
-    const [group, setGroup] = useState("red");
+    const [group, setGroup] = useState("");
 
     // const reset = async () => {
     //     try {
@@ -92,18 +92,19 @@ const BuzzerForm = () => {
                 </label> <br/>
                 <div className="firstInput">
                     <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} />
-                    <select name="team" id="team" onSelect={(e) => setGroup(e.target.value)}>
+                    <select name="team" id="team" value="" onChange={(e) => setGroup(e.target.value)}>
                         <option value="red">RED FIRE</option>
                         <option value="green">GREEN EARTH</option>
                         <option value="white">WHITE WINDS</option>
                         <option value="blue">BLUE OCEAN</option>
+                        <option value="">none</option>
                     </select>
                 </div>
             </div>
             
             {
                 isActive?(
-                    name.length!==0&&phone!==null&&villa.length!==0?(
+                    name.length!==0&&phone!==null&&villa.length!==0&&group.length!==0?(
                     <div className="buzzerComponent">
                         <Buzzer name={name} phone={phone} group={group} villa={villa}/>
                     </div>):(<div className="buzzerinactive" >
