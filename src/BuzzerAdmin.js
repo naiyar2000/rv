@@ -13,8 +13,8 @@ const BuzzerAdmin = () => {
                 winner: false,
                 isActive: false,
                 name:"",
-                phone:"",
-                villa:"",
+                // phone:"",
+                // villa:"",
                 group:""
             })
         } catch (error) {
@@ -33,15 +33,15 @@ const BuzzerAdmin = () => {
     }
 
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState(null);
-    const [villa, setVilla] = useState("");
+    // const [phone, setPhone] = useState(null);
+    // const [villa, setVilla] = useState("");
     const [group, setGroup] = useState("");
 
     React.useEffect(() => {
         return app.firestore().collection('buzzer').onSnapshot(snapshot => {
             setName(snapshot.docs[0].data().name);
-            setPhone(snapshot.docs[0].data().phone);
-            setVilla(snapshot.docs[0].data().villa);
+            // setPhone(snapshot.docs[0].data().phone);
+            // setVilla(snapshot.docs[0].data().villa);
             setGroup(snapshot.docs[0].data().group);
         })
     }, [])
@@ -54,13 +54,13 @@ const BuzzerAdmin = () => {
 
             <div>
                 <h3>Winner is {name}</h3>
-                <h4>Phone: {phone}</h4>
-                <h4>Villa: {villa}</h4>
+                {/* <h4>Phone: {phone}</h4> */}
+                {/* <h4>Villa: {villa}</h4> */}
                 <h4>Group: {group}</h4>
             </div>
 
-            <button className="admin" onClick={() => reset()}>Reset</button><br/>
-            <button className="admin" onClick={() => activate()}>Activate</button>
+            <button className="buzzer" onClick={() => {reset(); activate();}}>Activate Buzzer</button><br/>
+            {/* <button className="admin" onClick={() => activate()}>Activate</button> */}
 
         </div>
     )

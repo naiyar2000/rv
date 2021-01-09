@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import app from './base';
 import "./Buzzer.css"
 
-const Buzzer = ({name, phone, group, villa}) => {
+const Buzzer = ({name, group}) => {
 
     const [isWinner, setWinner] = useState(true)
 
@@ -18,9 +18,9 @@ const Buzzer = ({name, phone, group, villa}) => {
             if(data.data().winner===false) {
                 await app.firestore().collection('buzzer').doc('first').update({
                     name: name,
-                    phone: phone,
+                    // phone: phone,
                     group: group,
-                    villa: villa,
+                    // villa: villa,
                     winner: true
                 })
             }

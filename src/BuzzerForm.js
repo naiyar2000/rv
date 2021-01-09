@@ -31,8 +31,8 @@ const BuzzerForm = () => {
     }, []);
 
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState(null);
-    const [villa, setVilla] = useState("");
+    // const [phone, setPhone] = useState(null);
+    // const [villa, setVilla] = useState("");
     const [group, setGroup] = useState("");
 
     // const reset = async () => {
@@ -73,41 +73,41 @@ const BuzzerForm = () => {
             {/* <NavigationBar /> */}
             {/* <Hamburger title="BUZZER"/> */}
             <div className="inputForm">
-                <label>
+                {/* <label>
                     NAME
-                </label> <br/>
+                </label> <br/> */}
                 <div className="firstInput">
-                    <input className="emailInput1" name="email" type="text" onChange={(e) => setName(e.target.value)}/>
+                    <input className="emailInput1" name="email" type="text" placeholder="Enter your name here" onChange={(e) => setName(e.target.value)}/>
                     {/* <button onClick={() => reset()}>Reset</button>
                     <button onClick={() => activate()}>Activate</button> */}
                 </div>
-                <label>
+                {/* <label>
                     PHONE NO.
-                </label> <br/>
-                <div className="secondInput">
-                    <input className="emailInput1" name="password" type="number" onChange={(e) => setPhone(e.target.value)}/> <br/>
-                </div>
-                <label>
+                </label> <br/> */}
+                {/* <div className="secondInput">
+                    <input className="emailInput1" name="password" type="number" placeholder="Enter your mobile no. here" onChange={(e) => setPhone(e.target.value)}/> <br/>
+                </div> */}
+                {/* <label>
                     VILLA NO.
-                </label> <br/>
+                </label> <br/> */}
                 <div className="firstInput">
-                    <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} />
-                    <select name="team" id="team" value="" onChange={(e) => setGroup(e.target.value)}>
-                        <option value="red">RED FIRE</option>
-                        <option value="green">GREEN EARTH</option>
-                        <option value="white">WHITE WINDS</option>
+                    {/* <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} /> */}
+                    <select classname="firstInput" name="team" id="team" value={group} onChange={(e) => setGroup(e.target.value)}>
+                        <option value="">Select your team</option>
                         <option value="blue">BLUE OCEAN</option>
-                        <option value="">none</option>
+                        <option value="green">GREEN EARTH</option>
+                        <option value="red">RED FIRE</option>
+                        <option value="white">WHITE WINDS</option>
                     </select>
-                </div>
+                </div><br/>
             </div>
             
             {
                 isActive?(
-                    name.length!==0&&phone!==null&&villa.length!==0&&group.length!==0?(
+                    name.length!==0&&group.length!==0?(
                     <div className="buzzerComponent">
-                        <Buzzer name={name} phone={phone} group={group} villa={villa}/>
-                    </div>):(<div className="buzzerinactive" >
+                        <Buzzer name={name} group={group} />
+                    </div>):(<div className="buzzerunfilled" >
                         <span>Please Enter all the fields</span>
                     </div>)
                     ) : (
