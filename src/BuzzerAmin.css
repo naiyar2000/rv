@@ -9,10 +9,25 @@ button.admin{
     margin-left: 5px;
 }
 
-h4 {
-    margin:
+div.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+h4.team {
+    text-align: center;
 }
 
-h3 {
-    margin-left: 7px;
+h3.winner {
+    margin:auto;
+}
+
+.mom {
+    width: 100%; /* Try setting this to 400px or something */
+    display: table;
+}
+.child {
+    display: table-cell;
 }

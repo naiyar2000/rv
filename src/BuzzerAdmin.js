@@ -53,15 +53,19 @@ const BuzzerAdmin = () => {
             <Hamburger title="Buzzer Admin" />
 
             {
-                name.length!==0?(<div>
-                    <h3>Winner is {name}</h3>
+                name.length!==0?(<div className="result">
+                    <div className="mom">
+                        <div className="child"><img src="assets/1.png"></img></div>
+                        <div className="child"><h3>We have a winner !!</h3></div>
+                        <div className="child"><img src="assets/2.png"></img></div>
+                    </div>
+                    <h3>{name}</h3>
                     {/* <h4>Phone: {phone}</h4> */}
                     {/* <h4>Villa: {villa}</h4> */}
                     <h4>Group: {group}</h4>
                 </div>):(null)
             }
-            
-
+            <br/><br/><br/><br/><br/>
             <button className="buzzer" onClick={() => {reset(); activate();}}>Activate Buzzer</button><br/>
             {/* <button className="admin" onClick={() => activate()}>Activate</button> */}
 

@@ -90,16 +90,16 @@ const BuzzerForm = () => {
                 {/* <label>
                     VILLA NO.
                 </label> <br/> */}
-                <div className="firstInput">
+                 <div className="firstInput">
                     {/* <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} /> */}
-                    <select classname="firstInput" name="team" id="team" value={group} onChange={(e) => setGroup(e.target.value)}>
+                    <select className="emailInput1" name="team" id="" value={group} onChange={(e) => setGroup(e.target.value)}>
                         <option value="">Select your team</option>
                         <option value="blue">BLUE OCEAN</option>
                         <option value="green">GREEN EARTH</option>
                         <option value="red">RED FIRE</option>
                         <option value="white">WHITE WINDS</option>
                     </select>
-                </div><br/>
+                 </div><br/><br/><br/><br/><br/>
             </div>
             
             {
