@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import app from './base';
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
-import "./BuzzerAmin.css"
+import "./BuzzerAmin.css";
+import image1 from './assets/1.png'
+import image2 from './assets/2.png'
 
 
 const BuzzerAdmin = () => {
@@ -55,9 +57,9 @@ const BuzzerAdmin = () => {
             {
                 name.length!==0?(<div className="result">
                     <div className="mom">
-                        <div className="child"><img src="assets/1.png"></img></div>
+                        <div className="child"><img src={image1} alt="" height="60" width="60"/></div>
                         <div className="child"><h3>We have a winner !!</h3></div>
-                        <div className="child"><img src="assets/2.png"></img></div>
+                        <div className="child"><img src={image2} alt="" height="60" width="60"/></div>
                     </div>
                     <h3>{name}</h3>
                     {/* <h4>Phone: {phone}</h4> */}

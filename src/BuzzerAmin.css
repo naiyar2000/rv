@@ -27,6 +27,7 @@ h3.winner {
 .mom {
     width: 100%; /* Try setting this to 400px or something */
     display: table;
+    margin-top: 1em;
 }
 .child {
     display: table-cell;
