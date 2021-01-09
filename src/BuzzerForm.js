@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import app from './base';
+import Hamburger from './Hamburger'
+import NavigationBar from './NavigationBar'
 import "./BuzzerForm.css"
 import Buzzer from './Buzzer';
 import { AuthContext } from './Auth';
@@ -88,16 +90,16 @@ const BuzzerForm = () => {
                 {/* <label>
                     VILLA NO.
                 </label> <br/> */}
-                {/* <div className="firstInput"> */}
+                <div className="firstInput">
                     {/* <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} /> */}
-                    <select classname="passwordInput1" name="team" id="" value={group} onChange={(e) => setGroup(e.target.value)}>
+                    <select classname="firstInput" name="team" id="team" value={group} onChange={(e) => setGroup(e.target.value)}>
                         <option value="">Select your team</option>
                         <option value="blue">BLUE OCEAN</option>
                         <option value="green">GREEN EARTH</option>
                         <option value="red">RED FIRE</option>
                         <option value="white">WHITE WINDS</option>
                     </select>
-                {/* </div><br/> */}
+                </div><br/>
             </div>
             
             {
