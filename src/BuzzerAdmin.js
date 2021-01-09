@@ -52,12 +52,15 @@ const BuzzerAdmin = () => {
             <NavigationBar />
             <Hamburger title="Buzzer Admin" />
 
-            <div>
-                <h3>Winner is {name}</h3>
-                {/* <h4>Phone: {phone}</h4> */}
-                {/* <h4>Villa: {villa}</h4> */}
-                <h4>Group: {group}</h4>
-            </div>
+            {
+                name.length!==0?(<div>
+                    <h3>Winner is {name}</h3>
+                    {/* <h4>Phone: {phone}</h4> */}
+                    {/* <h4>Villa: {villa}</h4> */}
+                    <h4>Group: {group}</h4>
+                </div>):(null)
+            }
+            
 
             <button className="buzzer" onClick={() => {reset(); activate();}}>Activate Buzzer</button><br/>
             {/* <button className="admin" onClick={() => activate()}>Activate</button> */}
