@@ -36,7 +36,7 @@
 }
 
 .inputForm {
-    margin-top: 5vh;
+    margin-top: 0vh;
     padding: 1em;
 }
 
@@ -45,13 +45,8 @@ button {
 }
 
 .buzzerComponent {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-select{
-    
 }

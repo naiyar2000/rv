@@ -39,7 +39,7 @@ const Buzzer = ({name, group}) => {
             ):
             (
                 <div className="buzzer" onClick={() => submitData()}>
-                    <span>Click Buzzer</span>
+                    <span>Buzzer active</span>
                 </div> 
             ) 
         }

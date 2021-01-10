@@ -5,6 +5,7 @@ import NavigationBar from './NavigationBar';
 import "./BuzzerAmin.css";
 import image1 from './assets/1.png'
 import image2 from './assets/2.png'
+import image3 from './assets/3.png'
 
 
 const BuzzerAdmin = () => {
@@ -57,18 +58,28 @@ const BuzzerAdmin = () => {
             {
                 name.length!==0?(<div className="result">
                     <div className="mom">
-                        <div className="child"><img src={image1} alt="" height="60" width="60"/></div>
-                        <div className="child"><h3>We have a winner !!</h3></div>
                         <div className="child"><img src={image2} alt="" height="60" width="60"/></div>
+                        <div className="child"><h3>We have a winner !!</h3></div>
+                        <div className="child"><img src={image1} alt="" height="60" width="60"/></div>
                     </div>
                     <h3>{name}</h3>
                     {/* <h4>Phone: {phone}</h4> */}
                     {/* <h4>Villa: {villa}</h4> */}
                     <h4>Group: {group}</h4>
-                </div>):(null)
+                </div>):(<div className="result">
+                    <div className="mom">
+                        <div className="child"><img src={image3} alt="" height="60" width="60"/></div>
+                        <div className="child"><h3>Winner not decided yet</h3></div>
+                        <div className="child"><img src={image3} alt="" height="60" width="60"/></div>
+                    </div>
+                    <h3>Name:</h3>
+                    {/* <h4>Phone: {phone}</h4> */}
+                    {/* <h4>Villa: {villa}</h4> */}
+                    <h4>Group:</h4>
+                </div>)
             }
             <br/><br/><br/><br/><br/>
-            <button className="buzzer" onClick={() => {reset(); activate();}}>Activate Buzzer</button><br/>
+            <button className="buzzer" onClick={() => {reset(); activate();}}><h3>Activate Buzzer</h3></button><br/>
             {/* <button className="admin" onClick={() => activate()}>Activate</button> */}
 
         </div>

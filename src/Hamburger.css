@@ -11,7 +11,7 @@
     .HamburgerMenu {
         display: block !important;
         height: 7vh;
-        background-color: #25CA46;
+        background-color: rgba(0, 0, 0, 0.5);;
         position: fixed;
         z-index: 3;
         top: 0;
@@ -41,11 +41,12 @@
   }
   
   .navbar {
-    width: 16rem;
+    width: 411px;
+    height: 80px;
     min-height: 100vh;
     position: fixed;
     z-index: 4;
-    background: #25CA46;
+    background: rgba(0, 0, 0, 0.5);
     -webkit-transition: 2s ease;
     transition: 2s ease;
     top: 0;

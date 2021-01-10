@@ -71,7 +71,10 @@ const BuzzerForm = () => {
                 ) : (null)
             }
             {/* <NavigationBar /> */}
-            {/* <Hamburger title="BUZZER"/> */}
+            <Hamburger title="BUZZER"/>
+            <div className="result">
+                <h3>RV Togetherness (Antakshari)</h3>
+            </div>
             <div className="inputForm">
                 {/* <label>
                     NAME
@@ -94,12 +97,12 @@ const BuzzerForm = () => {
                     {/* <input type="text" className="passwordInput1" onChange={(e) => setVilla(e.target.value)} /> */}
                     <select className="emailInput1" name="team" id="" value={group} onChange={(e) => setGroup(e.target.value)}>
                         <option value="">Select your team</option>
-                        <option value="blue">BLUE OCEAN</option>
-                        <option value="green">GREEN EARTH</option>
-                        <option value="red">RED FIRE</option>
-                        <option value="white">WHITE WINDS</option>
+                        <option value="BLUE OCEAN">BLUE OCEAN</option>
+                        <option value="GREEN EARTH">GREEN EARTH</option>
+                        <option value="RED FIRE">RED FIRE</option>
+                        <option value="WHITE WINDS">WHITE WINDS</option>
                     </select>
-                 </div><br/><br/><br/><br/><br/>
+                 </div>
             </div>
             
             {
@@ -107,12 +110,12 @@ const BuzzerForm = () => {
                     name.length!==0&&group.length!==0?(
                     <div className="buzzerComponent">
                         <Buzzer name={name} group={group} />
-                    </div>):(<div className="buzzerunfilled" >
+                    </div>):(<div className="buzzerinactive" >
                         <span>Please Enter all the fields</span>
                     </div>)
                     ) : (
                     <div className="buzzerinactive" >
-                        <span>Buzzer Not active</span>
+                        <span>Buzzer inactive</span>
                     </div>
                     )
             }
