@@ -4,7 +4,7 @@ import Hamburger from './Hamburger'
 import NavigationBar from './NavigationBar'
 import "./BuzzerForm.css"
 import Buzzer from './Buzzer';
-import { AuthContext } from './Auth';
+// import { AuthContext } from './Auth';
 
 const BuzzerForm = () => {
 
@@ -12,7 +12,7 @@ const BuzzerForm = () => {
 
     const [isAdmin, setAdmin] = useState(false);
 
-    const {currentUser} = useContext(AuthContext);
+    // const {currentUser} = useContext(AuthContext);
 
     React.useEffect(() => {
 
@@ -62,16 +62,16 @@ const BuzzerForm = () => {
 
     return (
         <div>
-            {
+            {/* {
                 currentUser?(
                     <>
-                        {/* <NavigationBar />
-                        <Hamburger title="BUZZER" /> */}
+                        <NavigationBar />
+                        <Hamburger title="BUZZER" />
                     </>
                 ) : (null)
-            }
+            } */}
             {/* <NavigationBar /> */}
-            <Hamburger title="BUZZER"/>
+            {/* <Hamburger title="BUZZER"/> */}
             <div className="result">
                 <h3>RV Togetherness (Antakshari)</h3>
             </div>
