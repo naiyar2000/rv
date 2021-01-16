@@ -36,6 +36,7 @@ const NavigationBar = () => {
                     <div className="newsOption"><Link to="/news">NEWS</Link></div>
                     <div className="buzzerOption"><Link to="/buzzerForm">BUZZER</Link></div>
                     <div className="votingOption"><Link to="/voting">VOTING</Link></div>
+                    <div className="AdminVoting"><Link to="/AdminVoting">AdminV</Link></div>
                     <div className="signOut"><Link to="/" onClick={() => app.auth().signOut()}>SIGN OUT</Link></div>
                     {/* <div className="votingOption"><Link to="/">VOTING</Link></div>
                     <div className="photosOption"><Link to="/">PHOTOS</Link></div>

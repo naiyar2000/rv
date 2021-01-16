@@ -33,22 +33,41 @@ const finalSpaceCharacters = [
 
 const Voting = () => {
     const [characters, updateCharacters] = useState([]);
+    const [ip, updateIP] = useState("");
 
     React.useEffect(() => {
         return app.firestore().collection('VotingEvents').doc('groupdance').onSnapshot(snapshot => {
-            updateCharacters(snapshot.data().teams)
+                updateCharacters(snapshot.data().teams)
         });
     }, [])
 
 
+    const [details, setDetails] = useState("");
+
+    
+    React.useEffect(() => {
+        const getUserGeolocationDetails = () => {
+            fetch(
+                "https://geolocation-db.com/json/c0593a60-4159-11eb-80cd-db15f946225f"
+            )
+                .then(response => response.json())
+                .then(data => setDetails(data.IPv4));
+        };
+       getUserGeolocationDetails();
+    }, [])
+
+
     const saveData = async () => {
-        characters.forEach((elt, index) => {
-            updateCharacters(oldcharacter => [...oldcharacter], elt.values[index]++);
-        })
+        // characters.forEach((elt, index) => {
+        //     updateCharacters(oldcharacter => [...oldcharacter], elt.values[index]++);
+        // })
         try {
-            await app.firestore().collection('VotingEvents').doc('groupdance').update({
-                teams: characters
-            })
+            if(details!==""){
+                await app.firestore().collection('votingUser').doc(`${details}`).set({
+                    teams: characters
+                })
+            }
+            
         } catch (error) {
             alert(error);
         }
@@ -72,16 +91,16 @@ const Voting = () => {
           <Droppable droppableId="characters">
             {(provided) => (
               <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                {characters.map(({id, name, thumb}, index) => {
+                {characters.map((elt, index) => {
                   return (
-                    <Draggable key={id} draggableId={id} index={index}>
+                    <Draggable key={elt} draggableId={elt} index={index}>
                       {(provided) => (
                         <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                           <div className="characters-thumb">
-                            <img src={thumb} alt={`${name} Thumb`} />
+                            <img src={elt} alt={`${elt} Thumb`} />
                           </div>
                           <p>
-                            { name }
+                            { elt }
                           </p>
                         </li>
                       )}
