@@ -49,7 +49,17 @@ const AdminVoting = () => {
 
     const getData = () => {
         votingData.forEach((vote, index1) => {
-            console.log(teamPos[`${vote.data().teams[0]}`][index1])
+            // console.log(teamPos[`${vote.data().teams[0]}`][index1])
+            vote.data().teams.forEach((elt, index2) => {
+                let temp = teamPos[`${elt}`];
+                temp[index2]++;
+                setTeamPos(old => {
+                    // console.log(++old[`${elt}`][index2])
+                    // return old
+                    // console.log(index2)
+                    return {...old, [`${elt}`]: temp}
+                })
+            })
         })
     }
 
@@ -57,7 +67,7 @@ const AdminVoting = () => {
 
     return (
         <div>
-            {console.log(teamPos["Green A"])}
+            {/* {console.log(teamPos["Green A"])} */}
             <NavigationBar />
             <Hamburger title="Admin Voting" />
             {
