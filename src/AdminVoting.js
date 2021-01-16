@@ -48,7 +48,9 @@ const AdminVoting = () => {
     }, [teams])
 
     const getData = () => {
-        
+        votingData.forEach((vote, index1) => {
+            console.log(teamPos[`${vote.data().teams[0]}`][index1])
+        })
     }
 
 
