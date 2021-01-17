@@ -70,7 +70,7 @@ const AdminEvent = () => {
                     {
                         eventList.map((res) => {
                             return (
-                                <Events key={res.data().title} title={res.data().title} desc={res.data().desc} event={res.data().eventname} date={res.data().date??null}/>
+                                <Events key={res.data().title} title={res.data().title} desc={res.data().desc} event={res.data().eventname} date={res.data().date??null} user={false}/>
                             )
                         })
                     }

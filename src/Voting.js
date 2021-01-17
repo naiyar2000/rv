@@ -33,12 +33,14 @@ const finalSpaceCharacters = [
     }
   ]
 
-const Voting = () => {
+const Voting = (props) => {
     const [characters, updateCharacters] = useState([]);
-    const [ip, updateIP] = useState("");
+    // const [ip, updateIP] = useState("");
+
+    const {event} = props.match.params;
 
     React.useEffect(() => {
-        return app.firestore().collection('VotingEvents').doc('groupdance').onSnapshot(snapshot => {
+        return app.firestore().collection('VotingEvents').doc(`${event}`).onSnapshot(snapshot => {
                 updateCharacters(snapshot.data().teams)
         });
     }, [])
@@ -66,7 +68,7 @@ const Voting = () => {
         try {
             if(details!==""){
                 await app.firestore().collection('votingUser').doc(`${details}`).set({
-                    teams: characters
+                    [`${event}`]: characters
                 })
             }
             

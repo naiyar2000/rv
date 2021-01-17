@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Events.css"
 
-const Events = ({title, desc, event, date}) => {
+const Events = ({title, desc, event, date, user}) => {
     return (
         <div>
             <div className="EventTitle">
@@ -12,10 +12,20 @@ const Events = ({title, desc, event, date}) => {
             <div style={{paddingLeft: '1em', paddingRight: '1em'}}>
                 <p>{desc}</p>
             </div>
-            <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '200px', alignContent: 'center'}}>
-                <Link to={`/AdminVoting/${event}`}><span style={{marginLeft: '1.5em'}}>link</span> </Link>
-                <Link to={`/startVoting/${event}`}><span>Begin Voting</span></Link>
-            </div>
+            {
+                user===true ? (
+                    <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>
+                        <Link to={`/voting/${event}`}><span style={{marginLeft: '1.5em'}}>link</span> </Link>
+                    </div>
+                ) : (
+                    <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>
+                        <Link to={`/AdminVoting/${event}`}><span style={{marginLeft: '1.5em'}}>link</span> </Link>
+                        <Link to={`/startVoting/${event}`}><span>Begin Voting</span></Link>
+                        <Link to={`/VotingResult/${event}`}><span>Result</span></Link>
+                    </div>
+                )
+            }
+           
             
         </div>
     )
