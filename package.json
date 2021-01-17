@@ -9,10 +9,12 @@
     "firebase": "^8.2.1",
     "react": "^17.0.1",
     "react-beautiful-dnd": "^13.0.0",
+    "react-calendar": "^3.3.0",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-stopwatch": "^2.0.4",
     "react-transition-group": "^4.4.1",
     "web-vitals": "^0.2.4"
   },

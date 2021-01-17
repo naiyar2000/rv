@@ -1,0 +1,79 @@
+.headerVoting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.teamList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.teamList>h4 {
+    margin: 0;
+    padding: 0.8em;
+    margin-right: 0.3em;
+}
+
+.listPart {
+    width: 90%;
+    background-color: #cccccc;
+    padding-left: 1em;
+    border-radius: 5px;
+}
+
+.listPart>h4 {
+    margin: 0;
+    padding: 0.8em;
+}
+
+.pop {
+    position: fixed;
+    z-index: 10;
+    background-color: #ccccccb7;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popContainer {
+    height: 30vh;
+    width: 70%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#team {
+    width: 80%;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+    margin-bottom: 3em;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.lower1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

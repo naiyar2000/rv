@@ -1,0 +1,22 @@
+.popContainer2 {
+    background-color: #ffffff;
+    box-sizing: content-box;
+    border: solid 1px #000000;
+    border-radius: 10px;
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3em;
+    padding-bottom: 1em;
+}
+
+.close {
+    background-color: #cccccc;
+    padding: 0.5em;
+    font-size: medium;
+    font-weight: 600;
+    border-radius: 5px;
+}

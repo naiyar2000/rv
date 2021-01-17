@@ -1,0 +1,55 @@
+.eventBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90vh;
+}
+
+
+.cdate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+}
+
+.popWrapper {
+    position: fixed;
+    z-index: 10;
+    background-color: #cccccc69;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popContainerEvent {
+    background-color: #ffffff;
+    padding: 1em;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    padding: 1em;
+}
+
+.form>input {
+    width: 90%;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #C4C4C4;
+    border-color: rgba(0,0,0,0);
+    margin-bottom: 2em;
+}

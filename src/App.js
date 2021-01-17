@@ -15,6 +15,8 @@ import BuzzerForm from './BuzzerForm';
 import BuzzerAdmin from './BuzzerAdmin';
 import Voting from './Voting';
 import AdminVoting from './AdminVoting';
+import AdminEvent from './AdminEvent';
+import StartVoting from './StartVoting';
 
 
 const App = () => {
@@ -33,7 +35,9 @@ const App = () => {
           <Route exact path="/buzzerForm" component={BuzzerForm}/>
           <Route exact path="/buzzerAdmin" component={BuzzerAdmin}/>
           <Route exact path="/voting" component={Voting}/>
-          <Route exact path="/AdminVoting" component={AdminVoting}/>
+          <Route exact path="/AdminVoting/:event" component={AdminVoting}/>
+          <Route exact path="/AdminEvent" component={AdminEvent}/>
+          <Route exact path="/startVoting/:event" component={StartVoting}/>
       </Router>
     </AuthProvider>
   );
