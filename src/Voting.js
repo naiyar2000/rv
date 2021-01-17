@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import app from './base';
 import "./Voting.css";
+import Hamburger from './Hamburger';
+import NavigationBar from './NavigationBar';
 
 const finalSpaceCharacters = [
     {
@@ -84,39 +86,40 @@ const Voting = () => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Final Space Characters</h1>
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="characters">
-            {(provided) => (
-              <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                {characters.map((elt, index) => {
-                  return (
-                    <Draggable key={elt} draggableId={elt} index={index}>
-                      {(provided) => (
-                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <div className="characters-thumb">
-                            <img src={elt} alt={`${elt} Thumb`} />
-                          </div>
-                          <p>
-                            { elt }
-                          </p>
-                        </li>
-                      )}
-                    </Draggable>
-                  );
-                })}
-                {provided.placeholder}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </header>
-      <button onClick={() => saveData()}>save</button>
-      <p>
-        Images from <a href="https://final-space.fandom.com/wiki/Final_Space_Wiki">Final Space Wiki</a>
-      </p>
+    <div>
+      <NavigationBar />
+      <Hamburger title="VOTING" />
+      <div className="App">
+        <header className="App-header">
+          {/* <h1>Final Space Characters</h1> */}
+          <DragDropContext onDragEnd={handleOnDragEnd}>
+            <Droppable droppableId="characters">
+              {(provided) => (
+                <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+                  {characters.map((elt, index) => {
+                    return (
+                      <Draggable key={elt} draggableId={elt} index={index}>
+                        {(provided) => (
+                          <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                            {/* <div className="characters-thumb">
+                              <img src={elt} alt={`${elt} Thumb`} />
+                            </div> */}
+                            <p>
+                              { elt }
+                            </p>
+                          </li>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </DragDropContext>
+          <button className="submit" onClick={() => saveData()}>Submit</button>
+        </header>
+      </div>
     </div>
   );
 }
