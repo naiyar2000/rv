@@ -5,48 +5,25 @@ import "./Voting.css";
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
 
-const finalSpaceCharacters = [
-    {
-      id: 'gary',
-      name: 'Gary Goodspeed',
-      thumb: '/images/gary.png'
-    },
-    {
-      id: 'cato',
-      name: 'Little Cato',
-      thumb: '/images/cato.png'
-    },
-    {
-      id: 'kvn',
-      name: 'KVN',
-      thumb: '/images/kvn.png'
-    },
-    {
-      id: 'mooncake',
-      name: 'Mooncake',
-      thumb: '/images/mooncake.png'
-    },
-    {
-      id: 'quinn',
-      name: 'Quinn Ergon',
-      thumb: '/images/quinn.png'
-    }
-  ]
 
 const Voting = (props) => {
     const [characters, updateCharacters] = useState([]);
     // const [ip, updateIP] = useState("");
+    const [isActive, setActive] = useState(false);
 
     const {event} = props.match.params;
 
     React.useEffect(() => {
         return app.firestore().collection('VotingEvents').doc(`${event}`).onSnapshot(snapshot => {
-                updateCharacters(snapshot.data().teams)
+                updateCharacters(snapshot.data().teams);
+                setActive(snapshot.data().isActive);
         });
     }, [])
 
 
     const [details, setDetails] = useState("");
+    const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+
 
     
     React.useEffect(() => {
@@ -67,7 +44,7 @@ const Voting = (props) => {
         // })
         try {
             if(details!==""){
-                await app.firestore().collection('votingUser').doc(`${details}`).set({
+                await app.firestore().collection('votingUser').doc(`${details}`).update({
                     [`${event}`]: characters
                 })
             }
@@ -91,37 +68,44 @@ const Voting = (props) => {
     <div>
       <NavigationBar />
       <Hamburger title="VOTING" />
-      <div className="App">
-        <header className="App-header">
-          {/* <h1>Final Space Characters</h1> */}
-          <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="characters">
-              {(provided) => (
-                <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                  {characters.map((elt, index) => {
-                    return (
-                      <Draggable key={elt} draggableId={elt} index={index}>
-                        {(provided) => (
-                          <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                            {/* <div className="characters-thumb">
-                              <img src={elt} alt={`${elt} Thumb`} />
-                            </div> */}
-                            <p>
-                              { elt }
-                            </p>
-                          </li>
-                        )}
-                      </Draggable>
-                    );
-                  })}
-                  {provided.placeholder}
-                </ul>
-              )}
-            </Droppable>
-          </DragDropContext>
-          <button className="submit" onClick={() => saveData()}>Submit</button>
-        </header>
-      </div>
+      {
+          isActive===true ? (
+            <div className="App">
+            <header className="App-header">
+                <div className="parts">
+              <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId="characters">
+                  {(provided) => (
+                    <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+                      {characters.map((elt, index) => {
+                        return (
+                          <Draggable key={elt} draggableId={elt} index={index}>
+                            {(provided) => (
+                              <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                <div className="indice">{indices[index]}</div>
+                                <p>
+                                  { elt }
+                                </p>
+                              </li>
+                            )}
+                          </Draggable>
+                        );
+                      })}
+                      {provided.placeholder}
+                    </ul>
+                  )}
+                </Droppable>
+              </DragDropContext>
+              <button className="submit" onClick={() => saveData()}>Submit</button>
+              </div>
+            </header>
+          </div>
+          ) : (
+              <div>
+                Voting session has not been activated
+              </div>
+          )
+      }
     </div>
   );
 }

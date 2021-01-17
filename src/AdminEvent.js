@@ -30,7 +30,8 @@ const AdminEvent = () => {
                     desc: desc,
                     teams: [],
                     eventname: title,
-                    date: date.toDateString()
+                    date: date.toDateString(),
+                    isActive: false
                 })
             }
         } catch (error) {

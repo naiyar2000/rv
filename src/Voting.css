@@ -26,18 +26,24 @@
   .characters {
     list-style: none;
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .characters li {
-    width: 200%;
+    width: 200px;
     height: 30%;
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #afaeae;
     border: solid 2px #d0d0d0;
     border-radius: .2em;
     padding: .5em .8em .5em .5em;
     margin-bottom: 1em;
+    position: relative;
   }
   
   .characters p {
@@ -47,21 +53,6 @@
     color: black;
   }
   
-  .characters-thumb {
-    overflow: hidden;
-    flex-shrink: 0;
-    width: 2em;
-    height: 2em;
-    background-color: #e8e8e8;
-    padding: .5em;
-    margin-right: .5em;
-  }
-  
-  .characters-thumb img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
 
   button.submit{
     background-color: #4E4E4E;
@@ -69,4 +60,18 @@
     width: 108px;
     height: 46px;
     border-radius: 5px;
+  }
+
+  .indice {
+      position: absolute;
+      left: 0;
+      height: 40px;
+      width: 40px;
+      background-color: #ffffff;
+      color: #000000;
+      font-weight: bold;
+      box-sizing: content-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
