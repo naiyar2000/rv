@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import "./AdminEvent.css";
 import app from './base';
 import Events from './Events';
+import NavigationBar from './NavigationBar';
 import Hamburger from './Hamburger';
 
 const AdminEvent = () => {
@@ -42,6 +43,7 @@ const AdminEvent = () => {
 
     return (
         <div>
+            <NavigationBar />
             <Hamburger title="ADMIN VOTING" />
             {
                 pop===true ? (
@@ -66,7 +68,14 @@ const AdminEvent = () => {
                     </div>
                 ) : (null)
             }
+            
             <div className="eventBody">
+                <button className="submit" onClick={() => {
+                        setPop(!pop)
+                        setTitle("");
+                        setDesc("");
+                    }
+                }>ADD EVENT</button>
                 <div className="eventsList" style={{marginBottom: '1em'}}>
                     {
                         eventList.map((res) => {
@@ -76,12 +85,7 @@ const AdminEvent = () => {
                         })
                     }
                 </div>
-                <button onClick={() => {
-                        setPop(!pop)
-                        setTitle("");
-                        setDesc("");
-                    }
-                }>ADD EVENT</button>
+                
             </div>
         </div>
     )

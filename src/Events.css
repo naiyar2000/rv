@@ -4,7 +4,7 @@
     justify-content: space-between;
 }
 
-.EventTitle>h5, .EventTitle>h1 {
+.EventTitle>h5, .EventTitle>h2 {
     margin: 0;
     padding: 0;
     margin-top: 0.4em;

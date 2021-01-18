@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import app from './base';
 import Events from './Events';
 import Hamburger from './Hamburger';
+import NavigationBar from './NavigationBar';
 
 const VotingEvent = () => {
 
@@ -18,6 +19,7 @@ const VotingEvent = () => {
 
     return (
         <div>
+            <NavigationBar />
             <Hamburger title="VOTING" />
             <div className="eventBody">
                 <div className="eventsList" style={{marginBottom: '1em'}}>
