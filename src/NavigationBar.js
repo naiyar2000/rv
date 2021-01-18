@@ -14,7 +14,7 @@ const NavigationBar = () => {
                 const data = await app.firestore().collection('user').doc(`${currentUser.uid}`).get();
                 setAdmin(data.data().isAdmin);
             } catch (error) {
-                alert(error);
+                // alert(error);
             }
         }
         fetchData();
