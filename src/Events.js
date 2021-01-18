@@ -6,7 +6,7 @@ const Events = ({title, desc, event, date, user}) => {
     return (
         <div>
             <div className="EventTitle">
-                <h1 style={{borderBottom: 'solid 1px #000000', display: 'inline-block'}}>{title}</h1>
+                <h2 style={{display: 'inline-block'}}>{title}</h2>
                 <h5>{date}</h5>
             </div>
             <div style={{paddingLeft: '1em', paddingRight: '1em'}}>
@@ -24,7 +24,7 @@ const Events = ({title, desc, event, date, user}) => {
                         <Link to={`/VotingResult/${event}`}><span>Result</span></Link>
                     </div>
                 )
-            }
+            }<br />
            
             
         </div>
