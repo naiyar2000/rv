@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactDOM } from 'react';
 import app from './base';
 import "./VotingResult.css"
 
@@ -82,28 +82,67 @@ const VotingResult = (props) => {
           <text className="value-label" x={width- 8} y={yMid} alignmentBaseline="middle" >{props.d.value}</text>
         </g>
       }
+
+      const [barstate, setBar] = useState({
+        data: [
+          { name: 'Mon', value: 20 },
+          { name: 'Tue', value: 40 },
+          { name: 'Wed', value: 35 },
+          { name: 'Thu', value: 50 },
+          { name: 'Fri', value: 55 },
+          { name: 'Sat', value: 40 },
+          { name: 'Sun', value: 30 }
+        ]
+      })
+    
       
-      class BarChart extends React.Component {
-        state = {
-          data: [
-            { name: 'Mon', value: 20 },
-            { name: 'Tue', value: 40 },
-            { name: 'Wed', value: 35 },
-            { name: 'Thu', value: 50 },
-            { name: 'Fri', value: 55 },
-            { name: 'Sat', value: 40 },
-            { name: 'Sun', value: 30 }
-          ]
-        }
+    //   class BarChart extends React.Component {
+    //     state = {
+    //       data: [
+    //         { name: 'Mon', value: 20 },
+    //         { name: 'Tue', value: 40 },
+    //         { name: 'Wed', value: 35 },
+    //         { name: 'Thu', value: 50 },
+    //         { name: 'Fri', value: 55 },
+    //         { name: 'Sat', value: 40 },
+    //         { name: 'Sun', value: 30 }
+    //       ]
+    //     }
       
-        render() {
-          let barHeight = 30
+    //     render() {
+    //       let barHeight = 30
               
-          let barGroups = this.state.data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
-                                                          <BarGroup d={d} barHeight={barHeight} />
-                                                        </g>)                         
+    //       let barGroups = this.state.data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
+    //                                                       <BarGroup d={d} barHeight={barHeight} />
+    //                                                     </g>)                         
           
-          return <svg width="800" height="300" >
+    //       return <svg width="800" height="300" >
+    //         <g className="container">
+    //           <text className="title" x="10" y="30">Week beginning 9th July</text>
+    //           <g className="chart" transform="translate(100,60)">
+    //             {barGroups}
+    //           </g>
+    //         </g>
+    //       </svg>
+    //     }
+    //   }
+      
+    //   ReactDom.render(
+    //     <BarChart />,
+    //     document.getElementById('app')
+    //   )
+
+    let barHeight = 30
+    let barGroups = barstate.data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
+                                                          <BarGroup d={d} barHeight={barHeight} />
+                                                        </g>)   
+
+
+    return (
+              
+                                
+          
+           <svg width="800" height="300" >
             <g className="container">
               <text className="title" x="10" y="30">Week beginning 9th July</text>
               <g className="chart" transform="translate(100,60)">
@@ -111,21 +150,6 @@ const VotingResult = (props) => {
               </g>
             </g>
           </svg>
-        }
-      }
-      
-      ReactDOM.render(
-        <BarChart />,
-        document.getElementById('app')
-      )
-
-    return (
-        <div>
-            <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
-            <div id="wrapper">
-                <div id="app"></div>
-            </div>
-        </div>
     )
     
 }
