@@ -18,7 +18,9 @@ const Voting = (props) => {
                 updateCharacters(snapshot.data().teams);
                 setActive(snapshot.data().isActive);
         });
-    }, [])
+    }, [event])
+
+  
 
 
     const [details, setDetails] = useState("");
@@ -44,17 +46,9 @@ const Voting = (props) => {
         // })
         try {
             if(details!==""){
-                let exists = await app.firestore().collection('votingUser').doc(`${details}`).get();
-                if(exists) {
-                    await app.firestore().collection('votingUser').doc(`${details}`).update({
-                        [`${event}`]: characters
-                    })
-                } else {
-                    await app.firestore().collection('votingUser').doc(`${details}`).set({
-                        [`${event}`]: characters
-                    })
-                }
-                
+                await app.firestore().collection('votingUser').doc(`${details}`).set({
+                    [`${event}`]: characters
+                }, {merge: true})
             }
             
         } catch (error) {
