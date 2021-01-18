@@ -56,7 +56,7 @@ const NavigationBar = () => {
                     <div className="teamsOption"><Link to="/">TEAMS</Link></div>
                     <div className="rulesOption"><Link to="/">RULES</Link></div>
                     <div className="newsOption"><Link to="/">NEWS</Link></div>
-                    <div className="votingOption"><Link to="/voting">VOTING</Link></div>
+                    <div className="votingOption"><Link to="/VotingEvent">VOTING</Link></div>
                     <div className="signOut"><Link to="/" onClick={() => app.auth().signOut()}>SIGN OUT</Link></div>
                     {/* <div className="votingOption"><Link to="/">VOTING</Link></div>
                     <div className="photosOption"><Link to="/">PHOTOS</Link></div>
