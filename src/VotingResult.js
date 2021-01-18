@@ -65,7 +65,7 @@ const VotingResult = (props) => {
             teams.forEach((elt, index1) => {
                 let temp = 0;
                 teamPos[`${elt}`].forEach((res, index2) => {
-                    temp += res*((10-index2)*10);
+                    temp += res*(10-index2);
                 })
                 setPoints(old => {
                     return {...old, [`${elt}`]: temp}
