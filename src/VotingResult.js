@@ -156,7 +156,7 @@ const VotingResult = (props) => {
                     {
                         teams.map((elt, index) => {
                             return (
-                                <option value={index}>{elt}</option>
+                                <option value={index} key={elt}>{elt}</option>
                             )
                         })
                     }
