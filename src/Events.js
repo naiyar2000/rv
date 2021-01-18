@@ -15,7 +15,7 @@ const Events = ({title, desc, event, date, user}) => {
             {
                 user===true ? (
                     <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>
-                        <Link to={`/voting/${event}`}><span style={{marginLeft: '1.5em'}}>link</span> </Link>
+                        <Link to={`/voting/${event}`}><span style={{marginLeft: '1.5em'}}>Voting link</span> </Link>
                     </div>
                 ) : (
                     <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>

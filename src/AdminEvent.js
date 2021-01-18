@@ -36,7 +36,7 @@ const AdminEvent = () => {
                 })
             }
         } catch (error) {
-            alert(error);
+            z
         }
     }
 
