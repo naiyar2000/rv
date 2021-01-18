@@ -43,3 +43,7 @@ body {
   .container .bar-group:hover .value-label {
     font-size: 0.8em;
   }
+
+  .ResultArea {
+    padding: 1em;
+  }
