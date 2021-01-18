@@ -44,9 +44,17 @@ const Voting = (props) => {
         // })
         try {
             if(details!==""){
-                await app.firestore().collection('votingUser').doc(`${details}`).update({
-                    [`${event}`]: characters
-                })
+                let exists = await app.firestore().collection('votingUser').doc(`${details}`).get();
+                if(exists) {
+                    await app.firestore().collection('votingUser').doc(`${details}`).update({
+                        [`${event}`]: characters
+                    })
+                } else {
+                    await app.firestore().collection('votingUser').doc(`${details}`).set({
+                        [`${event}`]: characters
+                    })
+                }
+                
             }
             
         } catch (error) {
