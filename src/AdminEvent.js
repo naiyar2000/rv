@@ -5,13 +5,16 @@ import app from './base';
 import Events from './Events';
 import NavigationBar from './NavigationBar';
 import Hamburger from './Hamburger';
+import { useHistory } from 'react-router';
 
 const AdminEvent = () => {
 
     const [pop, setPop] = useState(false);
+    const [popAlert, setPopAlert] = useState(false);
     const [calendarVisible, setCalendarvisible] = useState(false);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const history = useHistory();
     const [date, setDate] = useState(new Date());
 
     const [eventList, setEventList] = useState([]);
@@ -34,9 +37,11 @@ const AdminEvent = () => {
                     date: date.toDateString(),
                     isActive: false
                 })
+                setPop(!pop);
+                setPopAlert(!popAlert);
             }
         } catch (error) {
-            z
+            alert(error);
         }
     }
 
@@ -48,7 +53,7 @@ const AdminEvent = () => {
             {
                 pop===true ? (
                     <div className="popWrapper">
-                        <div className="popContainerEvent">
+                        <div className="popContainerEvent" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
                             <div className="cdate">{date.toDateString()} <span style={{borderBottom: 'solid 1px #000000', marginLeft: '2em'}} onClick={() => setCalendarvisible(!calendarVisible)}>Edit</span></div>
                             {
                                 calendarVisible===true ? (
@@ -60,10 +65,20 @@ const AdminEvent = () => {
                                 <input type="text" placeholder="TITLE" name="title" id="title" onChange={(e) => setTitle(e.target.value)}/>
                                 <input type="text" placeholder="DESCRIPTION" name="desc" id="desc" onChange={(e) => setDesc(e.target.value)}/>
                                 <input type="submit" value="ADD EVENT" style={{width: '50%'}} onClick={() => {
-                                    setPop(!pop);
                                     setEvent();
                                 }} />
+                                <button style={{background: '#cccccc', padding: '1em'}} onClick={() => setPop(false)}>CANCEL</button>
                             </div>
+                        </div>
+                    </div>
+                ) : (null)
+            }
+            {
+                popAlert===true ? (
+                    <div className="pop">
+                        <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
+                            <h4>Event has been added</h4>
+                            <button style={{padding: '1em'}} onClick={() => setPopAlert(!popAlert)}>OK</button>
                         </div>
                     </div>
                 ) : (null)

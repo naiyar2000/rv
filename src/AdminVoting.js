@@ -4,6 +4,7 @@ import app from './base';
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
 import "./AdminVoting.css"
+import { useHistory } from 'react-router';
 
 const AdminVoting = (props) => {
 
@@ -15,10 +16,13 @@ const AdminVoting = (props) => {
     const [newTeam, setnewTeam] = useState("");
     const [addTeam, setaddTeam] = useState(true);
     const [removeButton, setbuttom] = useState(true);
-    
+    const [popAlert, setPopAlert] = useState(false);
+
     const { event } = props.match.params;
 
     const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+
+    const history = useHistory();
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -74,6 +78,7 @@ const AdminVoting = (props) => {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
                 teams: teams
             })
+            setPopAlert(true)
         } catch (error) {
             alert(error);
         }
@@ -93,6 +98,16 @@ const AdminVoting = (props) => {
                             <h4>Enter Team Name</h4>
                             <input type="text" name="team" id="team" onChange={(e) => setnewTeam(e.target.value)}/>
                             <input type="submit" value="ADD TEAM" onClick={() => submitTeam()}/>
+                        </div>
+                    </div>
+                ) : (null)
+            }
+            {
+                popAlert===true ? (
+                    <div className="pop">
+                        <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
+                            <h4>Enter Team Name</h4>
+                            <button style={{padding: '1em'}} onClick={() => history.goBack()}>OK</button>
                         </div>
                     </div>
                 ) : (null)

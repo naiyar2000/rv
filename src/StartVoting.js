@@ -12,7 +12,8 @@ const StartVoting = (props) => {
     const [Pop, setPop] = useState(false);
     const [Watch, setWatch] = useState(false);
     const history = useHistory();
-    
+    const [popAlert, setpopAlert] = useState(false);
+
     const { event } = props.match.params;
 
     const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
@@ -45,7 +46,8 @@ const StartVoting = (props) => {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
                 isActive: false
             })
-            history.goBack();
+            setPop(!Pop);
+            setpopAlert(!popAlert);
         } catch (error) {
             alert(error);
         }
@@ -55,12 +57,23 @@ const StartVoting = (props) => {
         <div>
             <NavigationBar />
             <Hamburger title="Admin Voting" />
+            {
+                popAlert===true ? (
+                    <div className="pop">
+                        <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
+                            <h4>Event voting has been stopped</h4>
+                            <button style={{padding: '1em'}} onClick={() => history.goBack()}>OK</button>
+                        </div>
+                    </div>
+                ) : (null)
+            }
             <div className="wrapper">
                 <div className="upper">
                     <div className="headerVoting">
                         <h2>{event}</h2>
                         <h5>{new Date().toDateString()}</h5>
                     </div>
+                    
                     {
                         teams.length!==null ? (teams.map((elt, index) => {
                             return (
