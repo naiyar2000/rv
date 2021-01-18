@@ -44,17 +44,6 @@ const AdminVoting = (props) => {
             })
         }
         setData(true);
-        // console.log(teamPos[`${teams[0]}`])
-
-        // votingData.forEach((vote, index1) => {
-        //     vote.data().teams.forEach((elt, index2) => {
-        //         // let temp = teamPos
-        //         console.log(teamPos[`${elt}`]);
-        //         // setTeamPos(old => {
-        //         //     return {...old, [`${elt}`]: 1}
-        //         // })
-        //     })
-        // })
     }, [teams])
 
     const getData = () => {

@@ -4,12 +4,14 @@ import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
 import "./StartVoting.css";
 import ReactStopWatch from 'react-stopwatch'
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 const StartVoting = (props) => {
 
     const [teams, setTeams] = useState([]);
     const [Pop, setPop] = useState(false);
     const [Watch, setWatch] = useState(false);
+    const history = useHistory();
     
     const { event } = props.match.params;
 
@@ -43,6 +45,7 @@ const StartVoting = (props) => {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
                 isActive: false
             })
+            history.goBack();
         } catch (error) {
             alert(error);
         }

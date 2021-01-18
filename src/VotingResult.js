@@ -16,6 +16,8 @@ const VotingResult = (props) => {
     const [addTeam, setaddTeam] = useState(true);
     const [removeButton, setbuttom] = useState(true);
     const [teamSelected, setTeam] = useState(0);
+    const [points, setPoints] = useState({});
+    const [pointArray, setPointsArray] = useState([]);
     
     const { event } = props.match.params;
 
@@ -60,7 +62,23 @@ const VotingResult = (props) => {
                     setData(false)
                 })
             }
+            teams.forEach((elt, index1) => {
+                let temp = 0;
+                teamPos[`${elt}`].forEach((res, index2) => {
+                    temp += res*((10-index2)*10);
+                })
+                setPoints(old => {
+                    return {...old, [`${elt}`]: temp}
+                })
+            })
+            getRank();
             setData(false);
+        })
+    }
+
+    const getRank = () => {
+        teams.forEach((elt, index) => {
+            setPointsArray(old => [...old, points[elt]])
         })
     }
 
@@ -76,10 +94,11 @@ const VotingResult = (props) => {
                         teams.length!==null ? (teams.map((elt, index) => {
                             return (
                                 <div className="teamList">
-                                    {/* <h4 style={{width: '2em'}}>{indices[index]}</h4> */}
+                                    <h4 style={{width: '2em', display: 'inline'}}>{indices[index]}</h4>
                                     <div className="listPart">
                                         <h4>{elt}</h4>
-                                    </div>
+                                    </div>     
+                                    <span>{points[elt]}</span>  
                                 </div>
                             )
                         })) : (null)
@@ -112,17 +131,6 @@ const VotingResult = (props) => {
                 }
             </div>
         </div>
-              
-                                
-          
-        //    <svg width="800" height="300" >
-        //     <g className="container">
-        //       <text className="title" x="10" y="30">Week beginning 9th July</text>
-        //       <g className="chart" transform="translate(100,60)">
-        //         {barGroups}
-        //       </g>
-        //     </g>
-        //   </svg>
     )
     
 }

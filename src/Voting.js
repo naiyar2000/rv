@@ -4,12 +4,14 @@ import app from './base';
 import "./Voting.css";
 import Hamburger from './Hamburger';
 import NavigationBar from './NavigationBar';
+import { Redirect, useHistory } from 'react-router';
 
 
 const Voting = (props) => {
     const [characters, updateCharacters] = useState([]);
     // const [ip, updateIP] = useState("");
     const [isActive, setActive] = useState(false);
+    const [Pop, setPop] = useState(false);
 
     const {event} = props.match.params;
 
@@ -24,7 +26,9 @@ const Voting = (props) => {
 
 
     const [details, setDetails] = useState("");
-    const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+    const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"];
+
+    const history = useHistory();
 
 
     
@@ -50,7 +54,8 @@ const Voting = (props) => {
                     [`${event}`]: characters
                 }, {merge: true})
             }
-            
+
+            setPop(true)
         } catch (error) {
             alert(error);
         }
@@ -66,10 +71,25 @@ const Voting = (props) => {
     updateCharacters(items);
   }
 
+  const response = () => {
+    setPop(false);
+    history.goBack();
+  }
+
   return (
     <div>
       <NavigationBar />
       <Hamburger title="VOTING" />
+      {
+                Pop===true ? (
+                    <div className="pop">
+                        <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px', padding: '1em'}}>
+                            <h3>Your Response has been saved</h3>
+                            <button onClick={() => response()} style={{padding: '1em', marginTop: '1.5em'}}>OK</button>
+                        </div>
+                    </div>
+                ) : (null)
+            }
       {
           isActive===true ? (
             <div className="App">
@@ -103,7 +123,7 @@ const Voting = (props) => {
             </header>
           </div>
           ) : (
-              <div>
+              <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 Voting session has not been activated
               </div>
           )
