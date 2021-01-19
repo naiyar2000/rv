@@ -4,6 +4,7 @@ import "./VotingResult.css";
 import { Bar } from 'react-chartjs-2'
 import NavigationBar from './NavigationBar';
 import Hamburger from './Hamburger';
+import VotingResultList from './VotingResultList';
 
 const VotingResult = (props) => {
 
@@ -68,19 +69,20 @@ const VotingResult = (props) => {
                     temp += res*(10-index2);
                 })
                 setPoints(old => {
-                    return {...old, [`${elt}`]: temp}
+                    return {...old, [`${elt}`]: temp, [`${temp}`]: elt}
                 })
             })
-            getRank();
+            teams.forEach(elt => console.log(elt));
+            // getRank();
             setData(false);
         })
     }
 
-    const getRank = () => {
-        teams.forEach((elt, index) => {
-            setPointsArray(old => [...old, points[elt]])
-        })
-    }
+    // const getRank = () => {
+    //     teams.forEach((elt, index) => {
+    //         setPointsArray(old => [...old, points[elt]])
+    //     })
+    // }
 
 
     return (
@@ -90,19 +92,15 @@ const VotingResult = (props) => {
             <NavigationBar />
             <div className="ResultArea">
                 <h2>{event}</h2>
-                {
+                {/* {
                         teams.length!==null ? (teams.map((elt, index) => {
                             return (
-                                <div className="teamList">
-                                    <h4 style={{width: '2em', display: 'inline'}}>{indices[index]}</h4>
-                                    <div className="listPart">
-                                        <h4>{elt}</h4>
-                                    </div>     
-                                    <span>{points[elt]}</span>  
-                                </div>
+                                <VotingResultList teams={teams} elt={elt} indices={indices} key={index} points={points} index={index}/>
                             )
                         })) : (null)
-                    }
+                } */}
+                <VotingResultList teams={teams} points={points} />
+
                 <h3>Group Wise Analysis</h3>
                 <select name="group" id="group" value={teamSelected} onChange={(e) => setTeam(e.target.value)}>
                     {
