@@ -83,9 +83,9 @@ const Voting = (props) => {
       {
                 Pop===true ? (
                     <div className="pop">
-                        <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px', padding: '1em'}}>
-                            <h3>Your Response has been saved</h3>
-                            <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"8%"}} onClick={() => response()}>OK</button>
+                        <div className="popContainer2" style={{position: 'relative'}}>
+                            <h4>Your Response has been saved</h4>
+                            <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => response()}>OK</button>
                         </div>
                     </div>
                 ) : (null)

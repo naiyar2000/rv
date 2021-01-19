@@ -138,7 +138,7 @@ const StartVoting = (props) => {
                     ) : (null)
                 }
                 <div className="lower1">
-                    <button onClick={() => setPop(true)}>ACTIVATE VOTING</button>
+                    <button onClick={() => setPop(true)}>ACTIVATE</button>
                 </div>
             </div>
         </div>
