@@ -106,8 +106,8 @@ const AdminVoting = (props) => {
                 popAlert===true ? (
                     <div className="pop">
                         <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
-                            <h4>Enter Team Name</h4>
-                            <button style={{padding: '1em'}} onClick={() => history.goBack()}>OK</button>
+                            <h4>Your Event has been created</h4>
+                            <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3}} onClick={() => history.goBack()}>OK</button>
                         </div>
                     </div>
                 ) : (null)
@@ -145,20 +145,9 @@ const AdminVoting = (props) => {
                         ) : (null)
                     }
                 </div>
-                {
-                    removeButton===true ? (
-                        <div className="lower1">
-                            <button onClick={() => {
-                                setaddTeam(!addTeam);
-                                setbuttom(!removeButton);
-                            }}>PROCEED</button>
-                        </div>
-                    ) : (
-                        <div className="lower1">
-                            <button onClick={() => storeTeams()}>CONFIRM TEAMS</button>
-                        </div>
-                    )
-                }
+                <div className="lower1">
+                            <button className="submit" style={{width: 140}} onClick={() => storeTeams()}>CONFIRM TEAMS</button>
+                </div>
                 
             </div>
             {/* {

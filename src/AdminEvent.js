@@ -64,10 +64,10 @@ const AdminEvent = () => {
                             <div className="form" onClick={() => setCalendarvisible(false)}>
                                 <input type="text" placeholder="TITLE" name="title" id="title" onChange={(e) => setTitle(e.target.value)}/>
                                 <input type="text" placeholder="DESCRIPTION" name="desc" id="desc" onChange={(e) => setDesc(e.target.value)}/>
-                                <input type="submit" value="ADD EVENT" style={{width: '50%'}} onClick={() => {
+                                <input type="submit" value="ADD EVENT" style={{width: '50%',backgroundColor: "#4E4E4E", color:"white"}} onClick={() => {
                                     setEvent();
                                 }} />
-                                <button style={{background: '#cccccc', padding: '1em'}} onClick={() => setPop(false)}>CANCEL</button>
+                                <button style={{background: '#cccccc', width: '50%',borderRadius:'7px'}} onClick={() => setPop(false)}>CANCEL</button>
                             </div>
                         </div>
                     </div>
