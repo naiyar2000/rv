@@ -33,7 +33,7 @@
   }
   
   .characters li {
-    width: 200px;
+    width: 250px;
     height: 30%;
     display: flex;
     justify-content: center;

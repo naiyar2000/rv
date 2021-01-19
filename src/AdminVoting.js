@@ -98,7 +98,7 @@ const AdminVoting = (props) => {
                             <div className="close" onClick={() => setPop(false)} style={{position: 'absolute', top: '10px', right: '10px'}}>X</div>
                             <h4>Enter Team Name</h4>
                             <input type="text" name="team" id="team" onChange={(e) => setnewTeam(e.target.value)}/>
-                            <input style={{background: '#cccccc', width: '50%',borderRadius:'7px'}} type="submit" value="ADD TEAM" onClick={() => submitTeam()}/>
+                            <input style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"40%"}} type="submit" value="ADD TEAM" onClick={() => submitTeam()}/>
                         </div>
                     </div>
                 ) : (null)
@@ -133,7 +133,7 @@ const AdminVoting = (props) => {
                             return (
                                 <div className="teamList">
                                     <h4 style={{width: '2em'}}>{indices[index]}</h4>
-                                    <div className="listPart">
+                                    <div className="listPart1">
                                         <h4>{elt}</h4>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@ const AdminVoting = (props) => {
                     }
                     {
                         addTeam===true ? (
-                            <button onClick={() => setPop(true)} style={{borderBottom: 'solid 1px #000000', width:"30%", backgroundColor:"black", marginLeft: '2em', color: 'white', fontWeight: '500', borderRadius:"5px"}}>Add Team</button>
+                            <button onClick={() => setPop(true)} style={{width:"30%", backgroundColor:"grey", marginLeft: '2em', color: 'vlack', fontWeight: '500', borderRadius:"5px"}}>Add Team</button>
                         ) : (null)
                     }
                 </div><br />

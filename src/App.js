@@ -19,6 +19,7 @@ import AdminEvent from './AdminEvent';
 import StartVoting from './StartVoting';
 import VotingResult from './VotingResult';
 import VotingEvent from './VotingEvent';
+import UserResult from './UserResult';
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           <Route exact path="/AdminEvent" component={AdminEvent}/>
           <Route exact path="/VotingEvent" component={VotingEvent}/>
           <Route exact path="/VotingResult/:event" component={VotingResult}/>
+          <Route exact path="/UserResult/:event" component={UserResult}/>
           <Route exact path="/startVoting/:event" component={StartVoting}/>
       </Router>
     </AuthProvider>
