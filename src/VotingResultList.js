@@ -15,7 +15,7 @@ const VotingResultList = ({teams, elt, index, points}) => {
                 temp.push(points[`${elt}`]);
             }
         })
-        temp.sort(function(a, b){return b-a});
+        temp.sort(function(a, b){return a-b});
         setPointsArray(temp);
     }, [teams, points])
 
