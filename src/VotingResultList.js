@@ -27,7 +27,7 @@ const VotingResultList = ({teams, elt, index, points}) => {
                     <div className="listPart">
                         <h4>{points[`${elt}`]}</h4>
                     </div>     
-                    <span>{elt}</span>  
+                    <span>Points: {elt}</span>  
                 </div>
             )
         })) : (null)

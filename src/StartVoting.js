@@ -79,7 +79,7 @@ const StartVoting = (props) => {
                             return (
                                 <div className="teamList">
                                     <h4 style={{width: '2em'}}>{indices[index]}</h4>
-                                    <div className="listPart">
+                                    <div className="listPart1">
                                         <h4>{elt}</h4>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@ const StartVoting = (props) => {
                     ) : (null)
                 }
                 <div className="lower1">
-                    <button onClick={() => setPop(true)}>ACTIVATE VOTING</button>
+                    <button className="submit" onClick={() => setPop(true)}>ACTIVATE</button>
                 </div>
             </div>
         </div>

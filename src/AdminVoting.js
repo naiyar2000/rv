@@ -94,10 +94,11 @@ const AdminVoting = (props) => {
             {
                 popVisible===true ? (
                     <div className="pop">
-                        <div className="popContainer">
+                        <div className="popContainer2" style={{position: 'relative'}}>
+                            <div className="close" onClick={() => setPop(false)} style={{position: 'absolute', top: '10px', right: '10px'}}>X</div>
                             <h4>Enter Team Name</h4>
                             <input type="text" name="team" id="team" onChange={(e) => setnewTeam(e.target.value)}/>
-                            <input type="submit" value="ADD TEAM" onClick={() => submitTeam()}/>
+                            <input style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"40%"}} type="submit" value="ADD TEAM" onClick={() => submitTeam()}/>
                         </div>
                     </div>
                 ) : (null)
@@ -106,8 +107,8 @@ const AdminVoting = (props) => {
                 popAlert===true ? (
                     <div className="pop">
                         <div className="popContainer" style={{border: 'solid 2px #000000', borderRadius: '10px'}}>
-                            <h4>Enter Team Name</h4>
-                            <button style={{padding: '1em'}} onClick={() => history.goBack()}>OK</button>
+                            <h4>Your Event has been created</h4>
+                            <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3}} onClick={() => history.goBack()}>OK</button>
                         </div>
                     </div>
                 ) : (null)
@@ -132,7 +133,7 @@ const AdminVoting = (props) => {
                             return (
                                 <div className="teamList">
                                     <h4 style={{width: '2em'}}>{indices[index]}</h4>
-                                    <div className="listPart">
+                                    <div className="listPart1">
                                         <h4>{elt}</h4>
                                     </div>
                                 </div>
@@ -141,24 +142,13 @@ const AdminVoting = (props) => {
                     }
                     {
                         addTeam===true ? (
-                            <span onClick={() => setPop(true)} style={{borderBottom: 'solid 1px #000000', marginLeft: '3.5em', color: 'blue', fontWeight: '500'}}>+ Add</span>
+                            <button onClick={() => setPop(true)} style={{width:"30%", backgroundColor:"grey", marginLeft: '2em', color: 'vlack', fontWeight: '500', borderRadius:"5px"}}>Add Team</button>
                         ) : (null)
                     }
+                </div><br />
+                <div className="lower1">
+                            <button className="submit" style={{width: 140}} onClick={() => storeTeams()}>CONFIRM TEAMS</button>
                 </div>
-                {
-                    removeButton===true ? (
-                        <div className="lower1">
-                            <button onClick={() => {
-                                setaddTeam(!addTeam);
-                                setbuttom(!removeButton);
-                            }}>PROCEED</button>
-                        </div>
-                    ) : (
-                        <div className="lower1">
-                            <button onClick={() => storeTeams()}>CONFIRM TEAMS</button>
-                        </div>
-                    )
-                }
                 
             </div>
             {/* {

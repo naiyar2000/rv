@@ -6,7 +6,7 @@ import NavigationBar from './NavigationBar';
 import Hamburger from './Hamburger';
 import VotingResultList from './VotingResultList';
 
-const VotingResult = (props) => {
+const UserResult = (props) => {
 
     const [votingData, setVotingData] = useState([]);
     const [teams, setTeams] = useState([]);
@@ -66,7 +66,7 @@ const VotingResult = (props) => {
             teams.forEach((elt, index1) => {
                 let temp = 0;
                 teamPos[`${elt}`].forEach((res, index2) => {
-                    temp += res*(index2+1);
+                    temp += res*(10-index2);
                 })
                 setPoints(old => {
                     return {...old, [`${elt}`]: temp, [`${temp}`]: elt}
@@ -100,31 +100,9 @@ const VotingResult = (props) => {
                         })) : (null)
                 } */}
                 <VotingResultList teams={teams} points={points} />
-
-                <h3>Group Wise Analysis</h3>
-                <select name="group" id="group" value={teamSelected} onChange={(e) => setTeam(e.target.value)}>
-                    {
-                        teams.map((elt, index) => {
-                            return (
-                                <option value={index} key={elt}>{elt}</option>
-                            )
-                        })
-                    }
-                </select>
-                <Bar 
-                    data={{
-                        labels: ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"],
-                        datasets: [
-                            {
-                                label: 'No. of people voted',
-                                data: teamPos[`${teams[teamSelected]}`]
-                            }
-                        ]
-                    }}
-                />
                 {
                     votingData.length!==0&&teams.length!==0&&seeGetData===true?(
-                        <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"30%"}} onClick={() => getData()}>Get Data</button>
+                        <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"30%"}} onClick={() => getData()}>Get Results</button>
                     ):(null)
                 }
             </div>
@@ -133,4 +111,4 @@ const VotingResult = (props) => {
     
 }
 
-export default VotingResult
+export default UserResult

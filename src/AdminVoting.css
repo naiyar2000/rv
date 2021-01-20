@@ -22,7 +22,14 @@
 }
 
 .listPart {
-    width: 90%;
+    width: 35%;
+    background-color: #cccccc;
+    padding-left: 1em;
+    border-radius: 5px;
+}
+
+.listPart1 {
+    width: 75%;
     background-color: #cccccc;
     padding-left: 1em;
     border-radius: 5px;

@@ -15,13 +15,14 @@ const Events = ({title, desc, event, date, user}) => {
             {
                 user===true ? (
                     <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>
-                        <Link to={`/voting/${event}`}><span style={{marginLeft: '1.5em'}}>Voting link</span> </Link>
+                        <Link to={`/voting/${event}`}><span style={{marginLeft: '1.5em'}}>Voting</span> </Link>
+                        <Link to={`/UserResult/${event}`}><span>Results</span></Link>
                     </div>
                 ) : (
                     <div className="links" style={{display: 'flex', justifyContent: 'space-between', width: '80%', alignContent: 'center'}}>
-                        <Link to={`/AdminVoting/${event}`}><span style={{marginLeft: '1.5em'}}>link</span> </Link>
-                        <Link to={`/startVoting/${event}`}><span>Begin Voting</span></Link>
-                        <Link to={`/VotingResult/${event}`}><span>Result</span></Link>
+                        <Link to={`/AdminVoting/${event}`}><span style={{marginLeft: '1.5em'}}>Add Event</span> </Link>
+                        <Link to={`/startVoting/${event}`}><span>Voting</span></Link>
+                        <Link to={`/VotingResult/${event}`}><span>Results</span></Link>
                     </div>
                 )
             }<br />
