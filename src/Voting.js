@@ -93,34 +93,37 @@ const Voting = (props) => {
       {
           isActive===true ? (
             <div className="App">
-            <header className="App-header">
-                <div className="parts">
-              <DragDropContext onDragEnd={handleOnDragEnd}>
-                <Droppable droppableId="characters">
-                  {(provided) => (
-                    <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                      {characters.map((elt, index) => {
-                        return (
-                          <Draggable key={elt} draggableId={elt} index={index}>
-                            {(provided) => (
-                              <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                <div className="indice">{indices[index]}</div>
-                                <p>
-                                  { elt }
-                                </p>
-                              </li>
-                            )}
-                          </Draggable>
-                        );
-                      })}
-                      {provided.placeholder}
-                    </ul>
-                  )}
-                </Droppable>
-              </DragDropContext>
-              <button className="submit" onClick={() => saveData()}>Submit</button>
+              <div className="headerVoting">
+                    <h2>{event}</h2>
+                    <h5>{new Date().toDateString()}</h5><br/>
               </div>
-            </header>
+                <div className="parts">
+                  <DragDropContext onDragEnd={handleOnDragEnd}>
+                    <Droppable droppableId="characters">
+                      {(provided) => (
+                        <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+                          {characters.map((elt, index) => {
+                            return (
+                              <Draggable key={elt} draggableId={elt} index={index}>
+                                {(provided) => (
+                                  <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                    <div className="indice">{indices[index]}</div>
+                                    <p>
+                                      { elt }
+                                    </p>
+                                  </li>
+                                )}
+                              </Draggable>
+                            );
+                          })}
+                          {provided.placeholder}
+                        </ul>
+                      )}
+                    </Droppable>
+                  </DragDropContext>
+                  <button className="submit" onClick={() => saveData()}>Submit</button>
+              </div>
+            
           </div>
           ) : (
               <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
