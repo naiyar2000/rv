@@ -41,6 +41,16 @@ const StartVoting = (props) => {
         }
     }
 
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+     }
+
     const stop = async () => {
         try {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
@@ -138,7 +148,7 @@ const StartVoting = (props) => {
                     ) : (null)
                 }
                 <div className="lower1">
-                    <button className="submit" onClick={() => setPop(true)}>ACTIVATE</button>
+                    <button className="submit" onClick={() => {setPop(true); console.log(makeid(6));}}>ACTIVATE</button>
                 </div>
             </div>
         </div>
