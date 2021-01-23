@@ -13,6 +13,7 @@ const StartVoting = (props) => {
     const [Watch, setWatch] = useState(false);
     const history = useHistory();
     const [popAlert, setpopAlert] = useState(false);
+    const [eventCode, setCode] = useState("");
 
     const { event } = props.match.params;
 
@@ -23,6 +24,9 @@ const StartVoting = (props) => {
             try {
                 await app.firestore().collection('VotingEvents').doc(`${event}`).onSnapshot(snapshot => {
                     setTeams(snapshot.data().teams);
+                    if(snapshot.data().code) {
+                        setCode(snapshot.data().code);
+                    }
                 })
             } catch (error) {
                 alert(error);
@@ -32,9 +36,12 @@ const StartVoting = (props) => {
     }, [])
 
     const start = async () => {
+        let temp = makeid(5);
+        setCode(temp);
         try {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
-                isActive: true
+                isActive: true,
+                code: temp
             })
         } catch (error) {
             alert(error);
@@ -48,6 +55,7 @@ const StartVoting = (props) => {
         for ( var i = 0; i < length; i++ ) {
            result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
+        console.log(result);
         return result;
      }
 
@@ -116,8 +124,12 @@ const StartVoting = (props) => {
                                             onCallback={() => console.log('Finish')}
                                             render={({ formatted, hours, minutes, seconds }) => {
                                             return (
-                                                <div style={{fontSize: '25px', fontWeight: 'bold'}}>
-                                                    { hours } : { minutes } : { seconds }
+                                                <div>
+                                                    <div style={{fontSize: '25px', fontWeight: 'bold'}}>
+                                                        { hours } : { minutes } : { seconds }
+                                                    </div>
+                                                    <br/>
+                                                    <div><strong>CODE: {eventCode}</strong></div>
                                                 </div>
                                             );
                                             }}

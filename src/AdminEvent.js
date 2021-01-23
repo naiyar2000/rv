@@ -35,7 +35,8 @@ const AdminEvent = () => {
                     teams: [],
                     eventname: title,
                     date: date.toDateString(),
-                    isActive: false
+                    isActive: false, 
+                    code: ""
                 })
                 setPop(!pop);
                 setPopAlert(!popAlert);

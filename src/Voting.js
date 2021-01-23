@@ -14,6 +14,10 @@ const Voting = (props) => {
     const [isActive, setActive] = useState(false);
     const [Pop, setPop] = useState(false);
     const [PopItems, setPopItems] = useState(false);
+    const [PopInputItems, setPopInputItems] = useState(false);
+    const [PopInput, setPopInput] = useState(false);
+    const [eventCode, setCode] = useState("");
+    const [InputCode, setInputCode] = useState("");
 
     const {event} = props.match.params;
     // const [itemsFromBackend, setItemsFromBackent] = useState([]);
@@ -45,6 +49,7 @@ const Voting = (props) => {
                     items: []
                   }
                 };
+                setCode(snapshot.data().code);
                 setItemLength(snapshot.data().teams);
                 setColumns(columnsFromBackend);
                 setActive(snapshot.data().isActive);
@@ -74,22 +79,18 @@ const Voting = (props) => {
 
 
     const saveData = async () => {
-        // characters.forEach((elt, index) => {
-        //     updateCharacters(oldcharacter => [...oldcharacter], elt.values[index]++);
-        // })
-        console.log('hello')
         try {
-            if(details!=="" && columns["first"].items.length===0){
-                await app.firestore().collection('votingUser').doc(`${details}`).set({
-                    [`${event}`]: columns["second"].items
-                }, {merge: true})
-            } else {
-              console.log('remove all elements');
-              setPopItems(true);
-              return 0;
-            }
-
-            setPop(true)
+          if(details!=="" && InputCode===eventCode){
+              await app.firestore().collection('votingUser').doc(`${details}`).set({
+                  [`${event}`]: columns["second"].items
+              }, {merge: true})
+          } else {
+            setPopInput(false);
+            setPopInputItems(true);
+            return 0;
+          }
+          setPopInput(false);
+          setPop(true)
         } catch (error) {
             alert(error);
         }
@@ -110,67 +111,6 @@ const Voting = (props) => {
     history.goBack();
   }
 
-  // return (
-  //   <div>
-      // <NavigationBar />
-      // <Hamburger title="VOTING" />
-      // {
-      //           Pop===true ? (
-      //               <div className="pop">
-      //                   <div className="popContainer2" style={{position: 'relative'}}>
-      //                       <h4>Your Response has been saved</h4>
-      //                       <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => response()}>OK</button>
-      //                   </div>
-      //               </div>
-      //           ) : (null)
-      //       }
-      // {
-      //     isActive===true ? (
-      //       <div className="App">
-      //         <div className="headerVoting">
-      //               <h2>{event}</h2>
-      //               <h5>{new Date().toDateString()}</h5><br/>
-      //         </div>
-      //           <div className="parts">
-      //             <DragDropContext onDragEnd={handleOnDragEnd}>
-      //               <Droppable droppableId="characters">
-      //                 {(provided) => (
-      //                   <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-      //                     {characters.map((elt, index) => {
-      //                       return (
-      //                         <Draggable key={elt} draggableId={elt} index={index}>
-      //                           {(provided) => (
-      //                             <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-      //                               <div className="indice">{indices[index]}</div>
-      //                               <p>
-      //                                 { elt }
-      //                               </p>
-      //                             </li>
-      //                           )}
-      //                         </Draggable>
-      //                       );
-      //                     })}
-      //                     {provided.placeholder}
-      //                   </ul>
-      //                 )}
-  //                   </Droppable>
-  //                 </DragDropContext>
-                  // <button className="submit" onClick={() => saveData()}>Submit</button>
-  //             </div>
-            
-  //         </div>
-          // ) : (
-          //     <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-          //       Voting session has not been activated
-          //     </div>
-  //         )
-  //     }
-  //   </div>
-  // );
-
-  
-  
-  
   
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -224,11 +164,32 @@ const Voting = (props) => {
           ) : (null)
       }
       {
+          PopInputItems===true ? (
+              <div className="pop">
+                  <div className="popContainer2" style={{position: 'fixed'}}>
+                      <h4>CODE IS INCORRECT!!!</h4>
+                      <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => setPopInputItems(false)}>OK</button>
+                  </div>
+              </div>
+          ) : (null)
+      }
+      {
           PopItems===true ? (
               <div className="pop">
                   <div className="popContainer2" style={{position: 'fixed'}}>
-                      <h4>Please rank all the teams</h4>
+                      <h4>Please Rank All Teams</h4>
                       <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => setPopItems(false)}>OK</button>
+                  </div>
+              </div>
+          ) : (null)
+      }
+      {
+          PopInput===true ? (
+              <div className="pop">
+                  <div className="popContainer2" style={{position: 'fixed'}}>
+                      <h4>Enter the code</h4>
+                      <input type="text" name="code" id="code" className="emailInput" style={{width: '70%'}} placeholder="Required" onChange={(e) => setInputCode(e.target.value)}/>
+                      <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => saveData()}>Submit</button>
                   </div>
               </div>
           ) : (null)
@@ -332,7 +293,13 @@ const Voting = (props) => {
                           })
                         }
                         <div style={{display: 'flex', zIndex: '3', justifyContent: 'center', alignItems: 'center'}}>
-                          <button className="submit" onClick={() => saveData()}>Submit</button>
+                          <button className="submit" onClick={() => {
+                            if(columns["first"].items.length===0) {
+                              setPopInput(true)
+                            } else {
+                              setPopItems(true);
+                            }
+                          }}>Submit</button>
                         </div>
                       </div>
                       <div>
