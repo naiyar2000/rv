@@ -13,9 +13,10 @@ const Voting = (props) => {
     // const [ip, updateIP] = useState("");
     const [isActive, setActive] = useState(false);
     const [Pop, setPop] = useState(false);
+    const [PopItems, setPopItems] = useState(false);
 
     const {event} = props.match.params;
-    const [itemsFromBackend, setItemsFromBackent] = useState([]);
+    // const [itemsFromBackend, setItemsFromBackent] = useState([]);
     // let columnsFromBackend = {
     //   [uuid()]: {
     //     name: "Requested",
@@ -84,6 +85,7 @@ const Voting = (props) => {
                 }, {merge: true})
             } else {
               console.log('remove all elements');
+              setPopItems(true);
               return 0;
             }
 
@@ -212,15 +214,25 @@ const Voting = (props) => {
       <NavigationBar />
       <Hamburger title="VOTING" />
       {
-                Pop===true ? (
-                    <div className="pop">
-                        <div className="popContainer2" style={{position: 'relative'}}>
-                            <h4>Your Response has been saved</h4>
-                            <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => response()}>OK</button>
-                        </div>
-                    </div>
-                ) : (null)
-            }
+          Pop===true ? (
+              <div className="pop">
+                  <div className="popContainer2" style={{position: 'fixed'}}>
+                      <h4>Your Response has been saved</h4>
+                      <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => response()}>OK</button>
+                  </div>
+              </div>
+          ) : (null)
+      }
+      {
+          PopItems===true ? (
+              <div className="pop">
+                  <div className="popContainer2" style={{position: 'fixed'}}>
+                      <h4>Please rank all the teams</h4>
+                      <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => setPopItems(false)}>OK</button>
+                  </div>
+              </div>
+          ) : (null)
+      }
           
       {
       isActive===true?
@@ -311,15 +323,15 @@ const Voting = (props) => {
                     </Droppable>
                   </div>
                     ) : (<div style={{ marginLeft: '3.5em', maxHeight: '50vh', position: 'relative' }}>
-                      <div className="backgroundLayout" style={{zIndex: -10, position: 'absolute'}}>
+                      <div className="backgroundLayout" style={{position: 'absolute'}}>
                         {
                           itemLength.map((elt, index) => {
                             return (
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '313px', height: '50px', background: '#E2E2E2', margin: '8px', borderRadius: '5px', position: 'relative'}}><span style={{position: 'absolute', left: '-40px'}}>{indices[index]}</span></div>
+                              <div style={{ display: 'flex', justifyContent: 'center', zIndex: '-10', alignItems: 'center', width: '313px', height: '50px', background: '#E2E2E2', margin: '8px', borderRadius: '5px', position: 'relative'}}><span style={{position: 'absolute', left: '-40px'}}>{indices[index]}</span></div>
                             )
                           })
                         }
-                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div style={{display: 'flex', zIndex: '3', justifyContent: 'center', alignItems: 'center'}}>
                           <button className="submit" onClick={() => saveData()}>Submit</button>
                         </div>
                       </div>
