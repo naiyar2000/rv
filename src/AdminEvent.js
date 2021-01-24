@@ -36,7 +36,8 @@ const AdminEvent = () => {
                     eventname: title,
                     date: date.toDateString(),
                     isActive: false, 
-                    code: ""
+                    code: "",
+                    result: false
                 })
                 setPop(!pop);
                 setPopAlert(!popAlert);
