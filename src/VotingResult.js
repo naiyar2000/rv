@@ -12,17 +12,25 @@ const VotingResult = (props) => {
     const [teams, setTeams] = useState([]);
     const [teamPos, setTeamPos] = useState({});
     const [seeGetData, setData] = useState(false);
-    const [popVisible, setPop] = useState(false);
-    const [newTeam, setnewTeam] = useState("");
-    const [addTeam, setaddTeam] = useState(true);
-    const [removeButton, setbuttom] = useState(true);
+    // const [popVisible, setPop] = useState(false);
+    // const [newTeam, setnewTeam] = useState("");
+    // const [addTeam, setaddTeam] = useState(true);
+    // const [removeButton, setbuttom] = useState(true);
     const [teamSelected, setTeam] = useState(0);
     const [points, setPoints] = useState({});
-    const [pointArray, setPointsArray] = useState([]);
+    // const [pointArray, setPointsArray] = useState([]);
+    const [isResultActive, setResultActive] = useState(false);
     
     const { event } = props.match.params;
 
-    const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+    // const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+
+    React.useEffect(() => {
+        return app.firestore().collection('VotingEvents').doc(`${event}`).onSnapshot(snapshot => {
+            if(snapshot.data().result)
+            setResultActive(snapshot.data().result);
+        })
+    }, [event])
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -51,8 +59,8 @@ const VotingResult = (props) => {
     }, [teams])
 
     const getData = () => {
+
         votingData.forEach((vote, index1) => {
-            // console.log(teamPos[`${vote.data().teams[0]}`][index1])
             if(vote.data()[`${event}`]) {
                 vote.data()[`${event}`].forEach((elt, index2) => {
                     let temp = teamPos[`${elt}`];
@@ -69,36 +77,22 @@ const VotingResult = (props) => {
                     temp += res*(index2+1);
                 })
                 setPoints(old => {
-                    return {...old, [`${elt}`]: temp, [`${temp}`]: elt}
+                    return {...old, [`${elt}`]: temp}
                 })
             })
-            teams.forEach(elt => console.log(elt));
-            // getRank();
             setData(false);
         })
     }
 
-    // const getRank = () => {
-    //     teams.forEach((elt, index) => {
-    //         setPointsArray(old => [...old, points[elt]])
-    //     })
-    // }
 
 
     return (
-
+        isResultActive===true ? (
         <div>
             <Hamburger title="Result" />
             <NavigationBar />
             <div className="ResultArea">
                 <h2>{event}</h2>
-                {/* {
-                        teams.length!==null ? (teams.map((elt, index) => {
-                            return (
-                                <VotingResultList teams={teams} elt={elt} indices={indices} key={index} points={points} index={index}/>
-                            )
-                        })) : (null)
-                } */}
                 <VotingResultList teams={teams} points={points} />
 
                 <h3>Group Wise Analysis</h3>
@@ -109,6 +103,7 @@ const VotingResult = (props) => {
                                 <option value={index} key={elt}>{elt}</option>
                             )
                         })
+                        
                     }
                 </select>
                 <Bar 
@@ -128,7 +123,7 @@ const VotingResult = (props) => {
                     ):(null)
                 }
             </div>
-        </div>
+        </div>):(<div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center'}}><strong>Result is yet to declared.</strong></div>)
     )
     
 }

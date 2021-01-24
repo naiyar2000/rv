@@ -1,37 +1,34 @@
 import React, { useState } from 'react'
 
-const VotingResultList = ({teams, elt, index, points}) => {
+const VotingResultList = ({points}) => {
 
 
-    const [pointsArray, setPointsArray] = useState([]);
+    const [pointsArray, setPointsArray] = useState(null);
 
     const indices = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
 
 
     React.useEffect(() => {
-        let temp = [];
-        teams.forEach((elt, index1) => {
-            if(points[`${elt}`]!==undefined){
-                temp.push(points[`${elt}`]);
-            }
-        })
-        temp.sort(function(a, b){return a-b});
-        setPointsArray(temp);
-    }, [teams, points])
+        let sortable = Object.fromEntries(
+            Object.entries(points).sort(([,a],[,b]) => a-b)
+        );
+        setPointsArray(sortable);
+    }, [points])
 
     return (
-        pointsArray.length!==0 ? (pointsArray.map((elt, index) => {
+        pointsArray!==null ? 
+        (Object.entries(pointsArray).map(([elt, point], index) => {
             return (
-                <div className="teamList">
+                <div className="teamList" key={elt}>
                     <h4 style={{width: '2em', display: 'inline'}}>{indices[index]}</h4>
                     <div className="listPart">
-                        <h4>{points[`${elt}`]}</h4>
+                        <h4>{elt}</h4>
                     </div>     
-                    <span>Points: {elt}</span>  
+                    <span>Points: {point}</span>  
                 </div>
             )
         })) : (null)
-    )
+        )
 }
 
 export default VotingResultList
