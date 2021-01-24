@@ -62,7 +62,8 @@ const StartVoting = (props) => {
     const stop = async () => {
         try {
             await app.firestore().collection('VotingEvents').doc(`${event}`).update({
-                isActive: false
+                isActive: false, 
+                result: true
             })
             setPop(!Pop);
             setpopAlert(!popAlert);
