@@ -36,7 +36,8 @@ const AdminEvent = () => {
                     eventname: title,
                     date: date.toDateString(),
                     isActive: false, 
-                    code: ""
+                    code: "",
+                    result: false
                 })
                 setPop(!pop);
                 setPopAlert(!popAlert);
@@ -92,7 +93,7 @@ const AdminEvent = () => {
                         setTitle("");
                         setDesc("");
                     }
-                }>ADD EVENT</button>
+                }>ADD EVENT</button><br />
                 <div className="eventsList" style={{marginBottom: '1em'}}>
                     {
                         eventList.map((res) => {

@@ -159,10 +159,10 @@ const StartVoting = (props) => {
                             </div>
                         </div>
                     ) : (null)
-                }
+                }<br /><br/>
                 <div className="lower1">
                     <button className="submit" onClick={() => {setPop(true); console.log(makeid(6));}}>ACTIVATE</button>
-                </div>
+                </div><br />
             </div>
         </div>
     )

@@ -145,10 +145,10 @@ const AdminVoting = (props) => {
                             <button onClick={() => setPop(true)} style={{width:"30%", backgroundColor:"grey", marginLeft: '2em', color: 'vlack', fontWeight: '500', borderRadius:"5px"}}>Add Team</button>
                         ) : (null)
                     }
-                </div><br />
+                </div><br /><br />
                 <div className="lower1">
                             <button className="submit" style={{width: 140}} onClick={() => storeTeams()}>CONFIRM TEAMS</button>
-                </div>
+                </div><br/>
                 
             </div>
             {/* {

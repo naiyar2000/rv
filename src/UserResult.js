@@ -93,7 +93,7 @@ const UserResult = (props) => {
             <NavigationBar />
             <div className="ResultArea">
                 <h2>{event}</h2>
-                <VotingResultList teams={teams} points={points} />
+                <VotingResultList teams={teams} points={points} user={true}/>
 
                 {
                     votingData.length!==0&&teams.length!==0&&seeGetData===true?(
@@ -101,7 +101,7 @@ const UserResult = (props) => {
                     ):(null)
                 }
             </div>
-        </div>):(<div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center'}}><strong>Result is yet to declared.</strong></div>)
+        </div>):(<div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center'}}><strong>Result is yet to be declared.</strong></div>)
     )
     
 }
