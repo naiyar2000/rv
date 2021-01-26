@@ -39,6 +39,7 @@ const Voting = (props) => {
         return app.firestore().collection('VotingEvents').doc(`${event}`).onSnapshot((snapshot, index) => {
                 // updateCharacters(snapshot.data().teams);
                 // setItemsFromBackent(snapshot.data().team);
+                setActive(snapshot.data().isActive);
                 let columnsFromBackend = {
                   ["first"]: {
                     name: "Requested",
@@ -52,7 +53,7 @@ const Voting = (props) => {
                 setCode(snapshot.data().code);
                 setItemLength(snapshot.data().teams);
                 setColumns(columnsFromBackend);
-                setActive(snapshot.data().isActive);
+
         });
     }, [event])
 
@@ -196,8 +197,8 @@ const Voting = (props) => {
       }
           
       {
-      isActive===true?
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "stretch", alignItems: 'stretch', maxheight: "80vh"}}>
+      isActive!==true?
+      (<div style={{ display: "flex", flexDirection: "column", justifyContent: "stretch", alignItems: 'stretch', maxheight: "80vh"}}>
         <DragDropContext
           onDragEnd={result => onDragEnd(result, columns, setColumns)}
         >
@@ -292,7 +293,7 @@ const Voting = (props) => {
                             )
                           })
                         }
-                        <div style={{display: 'flex', zIndex: '3', justifyContent: 'center', alignItems: 'center'}}>
+                        <div style={{display: 'flex', position: 'relative',  zIndex: '3', justifyContent: 'center', alignItems: 'center'}}>
                           <button className="submit" onClick={() => {
                             if(columns["first"].items.length===0) {
                               setPopInput(true)
@@ -302,7 +303,7 @@ const Voting = (props) => {
                           }}>Submit</button>
                         </div>
                       </div>
-                      <div>
+                      <div style={{position: 'absolute'}}>
                     <Droppable droppableId={columnId} key={columnId}>
                       {(provided, snapshot) => {
                         return (
@@ -368,7 +369,7 @@ const Voting = (props) => {
             );
           })}
         </DragDropContext>
-      </div> : (
+      </div>) : (
               <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 Voting session has not been activated
               </div>

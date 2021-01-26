@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const VotingResultList = ({points}) => {
+const VotingResultList = ({points, user}) => {
 
 
     const [pointsArray, setPointsArray] = useState(null);
@@ -24,7 +24,7 @@ const VotingResultList = ({points}) => {
                     <div className="listPart">
                         <h4>{elt}</h4>
                     </div>     
-                    <span>Points: {point}</span>  
+                    {user===false?(<span>Points: {point}</span>) : (null)}  
                 </div>
             )
         })) : (null)

@@ -93,7 +93,7 @@ const UserResult = (props) => {
             <NavigationBar />
             <div className="ResultArea">
                 <h2>{event}</h2>
-                <VotingResultList teams={teams} points={points} />
+                <VotingResultList teams={teams} points={points} user={true} />
 
                 {
                     votingData.length!==0&&teams.length!==0&&seeGetData===true?(

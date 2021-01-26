@@ -93,7 +93,7 @@ const VotingResult = (props) => {
             <NavigationBar />
             <div className="ResultArea">
                 <h2>{event}</h2>
-                <VotingResultList teams={teams} points={points} />
+                <VotingResultList teams={teams} points={points} user={false} />
 
                 <h3>Group Wise Analysis</h3>
                 <select name="group" id="group" value={teamSelected} onChange={(e) => setTeam(e.target.value)}>
