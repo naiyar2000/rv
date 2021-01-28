@@ -171,7 +171,7 @@ const Voting = (props) => {
                       <h4>CODE IS INCORRECT!!!</h4>
                       <button style={{backgroundColor: "#4E4E4E", color:"white", borderRadius:3, width:"20%"}} onClick={() => setPopInputItems(false)}>OK</button>
                   </div>
-              </div>
+              </div> 
           ) : (null)
       }
       {
@@ -293,6 +293,7 @@ const Voting = (props) => {
                             )
                           })
                         }
+                        
                         <div style={{display: 'flex', zIndex: '5', position:"relative", justifyContent: 'center', alignItems: 'center'}}>
                           <button className="submit" onClick={() => {
                             if(columns["first"].items.length===0) {
