@@ -93,7 +93,7 @@ const AdminEvent = () => {
                         setTitle("");
                         setDesc("");
                     }
-                }>ADD EVENT</button>
+                }>ADD EVENT</button><br />
                 <div className="eventsList" style={{marginBottom: '1em'}}>
                     {
                         eventList.map((res) => {

@@ -96,7 +96,7 @@ const VotingResult = (props) => {
                 <VotingResultList teams={teams} points={points} user={false} />
 
                 <h3>Group Wise Analysis</h3>
-                <select name="group" id="group" value={teamSelected} onChange={(e) => setTeam(e.target.value)}>
+                <select name="group" id="group" style={{width:"50%"}} value={teamSelected} onChange={(e) => setTeam(e.target.value)}>
                     {
                         teams.map((elt, index) => {
                             return (
@@ -123,7 +123,7 @@ const VotingResult = (props) => {
                     ):(null)
                 }
             </div>
-        </div>):(<div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center'}}><strong>Result is yet to declared.</strong></div>)
+        </div>):(<div style={{display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center'}}><strong>Result is yet to be declared.</strong></div>)
     )
     
 }

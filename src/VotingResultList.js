@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const VotingResultList = ({points, user}) => {
+const VotingResultList = ({points,user}) => {
 
 
     const [pointsArray, setPointsArray] = useState(null);
@@ -19,12 +19,12 @@ const VotingResultList = ({points, user}) => {
         pointsArray!==null ? 
         (Object.entries(pointsArray).map(([elt, point], index) => {
             return (
-                <div className="teamList" key={elt}>
-                    <h4 style={{width: '2em', display: 'inline'}}>{indices[index]}</h4>
-                    <div className="listPart">
+                <div className="teamList" key={elt} style={{paddingLeft:0, paddingRight:0}}>
+                    <h4 style={{width: '2em', display: 'inline', padding:0, marginRight:0}}>{indices[index]}</h4>
+                    <div className="listPart" style={{width:"83%"}}>
                         <h4>{elt}</h4>
-                    </div>     
-                    {user===false?(<span>Points: {point}</span>) : (null)}  
+                    </div>  
+                    {user===false?(<span>Points: {point}</span>) : (null)}
                 </div>
             )
         })) : (null)

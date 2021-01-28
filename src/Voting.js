@@ -293,7 +293,7 @@ const Voting = (props) => {
                             )
                           })
                         }
-                        <div style={{display: 'flex', position: 'relative',  zIndex: '3', justifyContent: 'center', alignItems: 'center'}}>
+                        <div style={{display: 'flex', zIndex: '5', position:"relative", justifyContent: 'center', alignItems: 'center'}}>
                           <button className="submit" onClick={() => {
                             if(columns["first"].items.length===0) {
                               setPopInput(true)
@@ -303,7 +303,7 @@ const Voting = (props) => {
                           }}>Submit</button>
                         </div>
                       </div>
-                      <div style={{position: 'absolute'}}>
+                      <div style={{position:"absolute"}}>
                     <Droppable droppableId={columnId} key={columnId}>
                       {(provided, snapshot) => {
                         return (
